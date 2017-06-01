@@ -1,0 +1,181 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+#meta information
+title: 楚韵江南  | chuyun's blog
+subtitle: 技术博客
+description: 前端 font-end 技术博客
+author: Lingxi
+keywords: 个人博客
+language: zh-CN
+timezone:
+
+# URL#可以不用配置
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#网址，搜索时会在搜索引擎中显示
+url: http://chuyun.github.io 
+#网站根目录
+root: /
+#永久链接格式
+permalink: :year/:month/:day/:title/
+#permalink: posts/:category/:year-:month-:day-:title.html
+#永久链接中各部分的默认值
+permalink_defaults:
+
+
+# Directory 目录配置
+#资源文件夹，这个文件夹用来存放内容
+source_dir: source
+#公共文件夹，这个文件夹用于存放生成的站点文件
+public_dir: public
+#标签文件夹
+tag_dir: tags
+#归档文件夹
+archive_dir: archives
+#分类文件夹
+category_dir: categories
+categories_dir: categories
+#Include code 文件夹
+code_dir: downloads/code
+
+###20161002 不一定有用
+#站点建立时间
+since: 2015
+#头像设置
+avatar: http://chuyun.github.io/img/logo.png
+
+####
+
+#duoshuo name
+duoshuo_shortname: zhangjuncao
+# 
+#国际化文件夹
+i18n_dir: :lang
+#跳过指定文件的渲染，您可使用 glob 来配置路径
+
+skip_render: 
+- ../themes/TKL-ZJC/project/resume/README.md
+- README.md
+        
+about_dir: about
+messageboard_dir: messageBoard
+
+# Writing  # Writing 写作配置
+new_post_name: :title.md # File name of new posts # 新文章的文件名称
+default_layout: post  #默认布局
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0  #把文件名称转换为 (1) 小写或 (2) 大写
+render_drafts: false  #显示草稿
+post_asset_folder: false  #是否启动资源文件夹
+relative_link: false #把链接改为与根目录的相对位址
+future: true
+highlight:  #代码块的设置
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag  分类 & 标签
+#默认分类
+#default_category: categories
+default_category: uncategorized
+#分类别名
+category_map: 
+    编程: programming
+    生活: life
+    其他: other  
+    测试: test
+    博客: blog
+#标签别名
+tag_map:
+    测试: test
+    文章: article
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination 分页
+## Set per_page to 0 to disable pagination
+#每页显示的文章量 (0 = 关闭分页功能)
+per_page: 5
+#分页目录
+pagination_dir: page
+
+# Extensions 扩展
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+#当前主题名称
+#theme: TKL-REVISION
+theme: icarus
+
+
+plugins:
+#- hexo-generator-feed
+#- hexo-generator-sitemap
+#- hexo-generator-baidu-sitemap
+
+#sitemap:
+sitemap:
+    path: sitemap/sitemap.xml
+
+baidusitemap:
+    path: sitemap/baidusitemap.xml
+
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  
+neat_enable: true
+neat_html:
+  enable: false
+  exclude:
+neat_css:
+  enable: true
+  exclude:
+    - '*.min.css'
+    - 'project/classmate/css/main.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+
+# admin:
+#   username: chuyun
+#   password_hash: $2a$08$1QrkpKk3jve4yYExu9H3bOuEcVOdHGWyue7j8kMsxOAQ4NoGB13FS
+#   secret: zhangjuncao0906
+#   deployCommand: './hexo-deploy.sh'
+
+# Admin
+admin:
+    name: hexo
+    password: hey
+    secret: hey hexo
+    expire: 60*1
+#     cors: 
+
+nofollow:
+  enable: true
+  exclude:
+    - chuyun.github.io
+
+
+# Deployment  #部署到github
+## Docs: https://hexo.io/docs/deployment.html
+
+deploy:
+  type: git
+  repo:
+      github: https://github.com/chuyun/chuyun.github.io.git,master
+      #coding: git@git.coding.net:aoyue/aoyue.git,coding-pages

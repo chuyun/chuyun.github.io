@@ -1,0 +1,62 @@
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>念念不忘，必有回响</title>
+	<meta name="description" content="Some WebGL experiments with raindrop effects" />
+	<meta name="keywords" content="webgl, raindrops, effect, rain, web, video, background" />
+	<meta name="author" content="Lucas Bebber for Codrops" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/style1.css" />
+	<!--[if gte IE 6]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+
+<body class="demo-1">
+	<div class="image-preload">
+		<img src="img/drop-color.png" alt="">
+		<img src="img/drop-alpha.png" alt="">
+		<img src="img/weather/texture-rain-fg.png" />
+		<img src="img/weather/texture-rain-bg.png" />
+	</div>
+	<div class="container">
+		<header class="codrops-header">
+			<div class="codrops-links">
+				<a class="codrops-icon codrops-icon--prev" href="https://chuyun.github.io" title="回到博客"><span>回到博客 </span></a>
+				<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=25417" title="源码参考"><span>源码参考</span></a>
+			</div>
+			<nav class="codrops-demos">
+				<iframe  src="https://music.daoapp.io/iframe?song=22829932&qnarrow=1&qssl=1&max_width=84px&autoplay=1" width=84px height=84px frameborder="0" marginwidth=0 marginheight=0></iframe>
+			</nav>
+		</header>
+		<div class="slideshow">
+			<canvas width="1" height="1" id="container" style="position:absolute"></canvas>
+			<div class="slide" id="slide-1" data-weather="rain">
+				<div class="slide__element slide__element--temp">
+					<p class="Type1"></p>
+					<p class="Type2"></p>
+				</div>
+				<div class="slide__element slide__element--date">Sunday, 22<sup>th</sup> of November 2015</div>
+			</div>
+		<p class="nosupport">当前浏览器不支持 WebGL，网页内容无法正常显示，但这无法阻止我爱她</p>
+	</div>
+	<script src="js/index.min.js"></script>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/typeit.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>

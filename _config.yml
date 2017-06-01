@@ -1,0 +1,117 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+# meta information
+title: 楚韵江南  | chuyun's blog
+subtitle: 技术博客
+description: 前端 font-end 技术博客
+author: Lingxi
+language: zh-CN
+timezone:
+
+# URL#可以不用配置
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#网址，搜索时会在搜索引擎中显示
+url: http://chuyun.github.io
+#网站根目录
+root: /
+#永久链接格式
+permalink: :year/:month/:day/:title/
+#permalink: posts/:category/:year-:month-:day-:title.html
+#永久链接中各部分的默认值
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+#跳过指定文件的渲染，您可使用 glob 来配置路径
+skip_render:
+- "love/**"
+- "Resume/**"
+- "project/**"
+- "*.html"
+- "image/**"
+- "README.md"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag 分类 & 标签
+default_category: uncategorized
+#分类别名
+category_map:
+    编程: programming
+    生活: life
+    其他: other  
+    测试: test
+    博客: blog
+#标签别名    
+tag_map:
+    测试: test
+    文章: article
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 6
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: material
+
+
+
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+
+# sitemap
+sitemap:
+  path: sitmap/sitemap.xml
+baidusitemap:
+  path: sitmap/baidusitemap.xml
+
+# 本地搜索
+search:
+	path: search.xml
+	field: post
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo:
+      github: https://github.com/chuyun/chuyun.github.io.git,master
+      # coding: git@git.coding.net:aoyue/aoyue.git,master

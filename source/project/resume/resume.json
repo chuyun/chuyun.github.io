@@ -1,0 +1,193 @@
+{
+  "data_lang": "zh-CN",
+  "ga_id": "UA-63818301-2",
+  "resume_title": "张俊操 - 个人简历",
+  "name": "张俊操",
+  "repo": "https://github.com/chuyun/resume.git",
+  "job_description": ["Web前端工程师"],
+  "contact": {
+    "email": "info_together@aliyun.com",
+    "wechat": {
+      "id": "13218796032",
+      "qrcode": "static/wechat.svg"
+    },
+    "sinaweibo": {
+      "id": "楚韵江南V5",
+      "url": "http://weibo.com/234600144"
+    },
+    "github": {
+      "id": "chuyun"
+    },
+    "blog": {
+      "url": "http://chuyun.github.io"
+    }
+  },
+  "links": [{
+    "type": "repo",
+    "url": "https://github.com/chuyun/resume"
+
+  }, {
+    "type": "pdf",
+    "url": "static/chuyun.pdf"
+
+  }],
+  "education": [{
+    "type": "undergraduate",
+    "name": "江南大学",
+    "major": "数字媒体技术",
+    "start": "2013",
+    "end": "2017",
+    "honor": [
+      "`中共预备党员`",
+      "2013 - 2014 学年度校**三等奖学金**",
+      "2013 - 2014 学年度    **国家励志奖学金**",
+      "2014 - 2015 学年度    **国家励志奖学金**"
+    ]
+  }],
+
+  "experience": [{
+    "type": "internship",
+    "techtype": "frontend",
+    "place": "大学生创新实践项目",
+    "start": "2015.05",
+    "end": "2016.05",
+    "name": "同态加密域数据的加密与隐藏",
+    "description": [
+      "`同态加密域图像可逆数据隐藏`技术探究及`算法实现`",
+      "用`Java`语言开发出技术实现原型一套并撰写论文"
+    ],
+    "stack": ["java"],
+    "compatibility": "IE8+"
+  }, {
+    "type": "internship",
+    "techtype": "frontend",
+    "place": "课程实践项目",
+    "start": "2015.05",
+    "end": "2015.07",
+    "name": "信息可视化",
+    "description": [
+      "分析数据集给出的住院记录",
+      "使用可视化的方法，分析流行病传播的表现和特征",
+      "综合运用`Processing`、`Matlab`实现可视化结果"
+    ],
+    "stack": ["processing", "matlab"],
+    "compatibility": "IE8+"
+  }, {
+      "type": "internship",
+      "techtype": "unity",
+      "place": "课程实践项目",
+      "start": "2016.03",
+      "end": "2016.06",
+      "name": "Unity游戏开发",
+      "description": [
+        "第一人称射击游戏[本地&&网络]",
+        "使用`Unity`游戏开发引擎,搭建游戏场景,添加AI"
+      ],
+      "stack": ["unity", "game"],
+      "compatibility": "IE8+"
+    },{
+    "type": "internship",
+    "techtype": "frontend",
+    "place": "课程实践项目",
+    "start": "2016.06",
+    "end": "2016.07",
+    "name": "数字图像处理",
+    "description": [
+      "使用`Matlab`实现一个基本的图像处理系统",
+      "实现对图像文件的基本操作和其他特殊操作"
+    ],
+    "stack": ["matlab"],
+    "compatibility": "IE9+"
+  },
+    {
+    "type": "project",
+    "techtype": "frontend",
+    "project_type": "personal",
+    "name": "Resume",
+    "source": "https://github.com/chuyun/chuyun.github.io/tree/blog-source/themes/icarus/source/Resume",
+    "demo": "http://chuyun.github.io/Resume/",
+    "description": [
+      "Web版个人简历",
+      "使用`jQuery`、`FullPage`、`cssParser`等实现简历页面",
+      "通过`Github`和`Travis CI`实现自动部署"
+    ],
+    "stack": ["jQuery", "FullPage", "cssParser","Travis CI"],
+    "compatibility": "IE9+"
+  }, {
+    "type": "project",
+    "techtype": "frontend",
+    "project_type": "personal",
+    "name": "个人博客搭建",
+    "demo": "http://chuyun.github.io/",
+    "description": [
+      "基于 `Hexo` 实现的个人静态博客",
+      "对博客进行`SEO优化`，`速度优化`，`兼容性调试`",
+      "使用`Travis CI`对博客进行`自动化部署`"
+    ],
+    "stack": ["hexo", "Travis CI", "SEO"],
+    "compatibility": "IE10+"
+  }],
+  "skills": [{
+    "type": "frontend",
+    "item": [{
+      "summary": "`HTML` / `CSS`",
+      "description": [
+        "能够编写语义化的 `HTML`，模块化的 `CSS`",
+        "熟悉已标准化的 `HTML5` / `CSS3` 新特性"
+      ]
+    }, {
+      "summary": "`ECMAScript`（`JavaScript`）",
+      "description": [
+        "熟悉 `ECMAScript`（`JavaScript`）",
+        "了解 `ECMAScript` 标准"
+      ]
+    }, {
+      "summary": "`DOM` / `BOM` 及常见 `Web API`",
+      "description": [
+        "熟悉原生 `DOM` 与 `BOM` 的使用及相关标准",
+        "了解常见的 Web API **兼容性**问题及其解决方案"
+      ]
+    }, {
+      "summary": "前端工程实践",
+      "description": [
+        "熟练掌握 `HTML` / `CSS` / `javaScript` 语言",
+        "掌握`XHTML+CSS`（即`DIV+CSS`）布局",
+        "了解常用的框架及前端 `MV*` 模型",
+        "熟悉 `jQuery` / `jQuery UI` / `Bootstrap` 的使用与扩展, 阅读过部分源代码",
+        "熟悉`Ajax`/`Websocket`等Web前端开发技术",
+        "在项目中使用过 `Less` / `Sass` 等预处理/后处理工具",
+        "日常使用 `Gulp` 或 `Grunt` 改进工作流",
+        "掌握基本的前端兼容性处理、性能优化知识与技巧，并能在项目中加以实践"
+      ]
+    }]
+  }, {
+    "type": "backend",
+    "item": [{
+      "summary": "`Node.js  &&  Java`",
+      "description": [
+        "能够使用 `Node.js API` 搭建简单的后端程序",
+        "了解异步 I/O 及事件驱动的服务器模型，了解常见的**异步编程**解决方案",
+        "熟悉Java语言，参与过相应的项目开发"
+      ]
+    }, {
+      "summary": "其他",
+      "description": [
+        "使用 `Gulp`/`Grant`实现前端自动化",
+        "了解 `HTTP`、 `TCP/IP`、 `WebSocket` 等协议"
+      ]
+    }]
+  }, {
+    "type": "miscellaneous",
+    "item": [
+      "四年 `MacOS` 使用经验，熟悉常用命令与配置",
+      "能够使用 `Markdown` 编写得体的文档或论文，具备良好的技术交流能力",
+      "日常使用 `Webstorm` 与 `Sublime Text 3` / `Xcode` /`VsCode`进行开发，乐于尝试新工具",
+      "能够使用 `Sketch` / `Photoshop` 完成切图和简单设计",
+      "对用户体验、交互操作流程和用户需求有一定的了解",
+      "具有部分IOS开发经验（swift语言）",
+      "具备良好的责任心，较强的学习能力",
+      "热爱前端开发，也热爱一切美好的事物",
+      "在线简历:`http://chuyun.github.io/Resume/`"
+    ]
+  }]
+}

@@ -1,0 +1,22 @@
+User-agent: * Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /about/
+Allow: /page/
+Allow: /post/
+Allow: /aboutSite/
+Allow: /about/
+Allow: /agreement/
+Allow: /links/
+Allow: /Resume/
+Disallow: /js/**
+Disallow: /css/**
+Disallow: /fonts/
+Disallow: /image/**
+Disallow: /project/**
+Disallow: /love/**
+
+
+Sitemap: http://chuyun.github.io/sitmap/sitemap.xml
+Sitemap: http://chuyun.github.io/sitmap/baidusitemap.xml

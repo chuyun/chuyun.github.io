@@ -1,0 +1,362 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="css/mapstyle.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/raphael-min.js"></script>
+	<script type="text/javascript" src="js/chinaMapConfig.js"></script>
+	<script type="text/javascript" src="js/map-min.js"></script>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('#ChinaMap').SVGMap({
+			mapWidth: 1000,
+			mapHeight: 900
+		});
+	});
+</script>
+</head>
+<body>
+<div class="headtitle">
+	<h1>Map of Classmates(2016)</h1>
+</div>
+<div class="wrap" style="margin-top: 50px;">
+<div style="text-align:center;clear:both;">
+</div>
+
+<div class="itemCon" style="float: left">
+	<div id="ChinaMap" style="margin: 50px;"></div>
+	<div id="stateTip" style="position: absolute;left: 100%;text-align: left;display: inline;"></div>
+</div>
+
+<div id="mapTipContent" style="width: 900px;margin: 0 auto;display: none">
+	<div class="mapTipText mapTipText0">
+		<div class="mapTipImg"><img src="images/heilongjiang.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=黑龙江美食">黑龙江</a></h2>
+			<ul>
+				<li><a href="" target="_blank">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText1">
+		<div class="mapTipImg"><img src="images/jilin.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=吉林美食">吉林</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText2">
+		<div class="mapTipImg"><img src="images/liaoning.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=辽宁美食">辽宁</a></h2>
+			<ul>
+				<li><a href="">陈甫洪[沈阳]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText3">
+		<div class="mapTipImg"><img src="images/hebei.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=河北美食">河北</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText4">
+		<div class="mapTipImg"><img src="images/shandong.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=山东美食">山东</a></h2>
+			<ul>
+				<li><a href="">谢肖[济南]</a></li>
+				<li><a href="">黄立东[青岛]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText5">
+		<div class="mapTipImg"><img src="images/jiangsu.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=江苏美食">江苏</a></h2>
+			<ul>
+				<li><a href="http://chuyun.github.io/project/classmate">张俊操[无锡]</a></li>
+				<li><a href="">贾家伟[无锡]</a></li>
+				<li><a href="">周文静[南京]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText6">
+		<div class="mapTipImg"><img src="images/zhejiang.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=浙江美食">浙江</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText7">
+		<div class="mapTipImg"><img src="images/anhui.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=安徽美食">安徽</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText8">
+		<div class="mapTipImg"><img src="images/henan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=河南美食">河南</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText9">
+		<div class="mapTipImg"><img src="images/shan1xi.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=山西美食">山西</a></h2>
+			<ul>
+				<li><a href="">张学杰[晋中]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText10">
+		<div class="mapTipImg"><img src="images/shan3xi.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=陕西美食">陕西</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText11">
+		<div class="mapTipImg"><img src="images/gansu.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=甘肃美食">甘肃</a></h2>
+			<ul>
+				<li><a href="">陈聪[西北民族大学]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText12 ">
+		<div class="mapTipImg"><img src="images/hubei.jpg" alt=""/></div>
+		<div class="mapTipList mapTipListHubei">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=湖北美食">湖北</a></h2>
+			<ul>
+				<li><a href="">敖月[湖经]</a></li>
+				<li><a href="">何艳[武汉]</a></li>
+				<li><a href="">张锦[武汉]</a></li>
+				<li><a href="">孙伟[华科]</a></li>
+				<li><a href="">彭锦[武汉]</a></li>
+				<li><a href="">丁新城[武纺]</a></li>
+				<li><a href="">任玉婷[黄石]</a></li>
+				<li><a href="">刘彩虹[武汉]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText13">
+		<div class="mapTipImg"><img src="images/jiangxi.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=江西美食">江西</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText14">
+		<div class="mapTipImg"><img src="images/fujian.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=福建美食">福建</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText15">
+		<div class="mapTipImg"><img src="images/hunan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=湖南美食">湖南</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText16">
+		<div class="mapTipImg"><img src="images/guizhou.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=贵州美食">贵州</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText17">
+		<div class="mapTipImg"><img src="images/sichuan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=四川美食">四川</a></h2>
+			<ul>
+				<li><a href="">李梦兰[成都]</a></li>
+				<li><a href=""> </a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText18">
+		<div class="mapTipImg"><img src="images/yunnan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=云南美食">云南</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText19">
+		<div class="mapTipImg"><img src="images/qinghai.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=青海美食">青海</a></h2>
+			<ul>
+				<li><a href="">李文俊[西宁]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText20">
+		<div class="mapTipImg"><img src="images/hainan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=海南美食">海南</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText21">
+		<div class="mapTipImg"><img src="images/shanghai.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=上海美食">上海</a></h2>
+			<ul>
+				<li><a href="">杨帆[]</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText22">
+		<div class="mapTipImg"><img src="images/chongqing.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=重庆美食">重庆</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText23">
+		<div class="mapTipImg"><img src="images/tianjin.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=天津美食">天津</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText24">
+		<div class="mapTipImg"><img src="images/beijing.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=北京美食">北京</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText25">
+		<div class="mapTipImg"><img src="images/ningxia.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=宁夏美食">宁夏</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText26">
+		<div class="mapTipImg"><img src="images/neimenggu.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=内蒙古美食">内蒙古</a></h2>
+			</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText27">
+		<div class="mapTipImg"><img src="images/guangxi.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=广西美食">广西</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText28">
+		<div class="mapTipImg"><img src="images/xinjiang.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=新疆美食">新疆</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText29">
+		<div class="mapTipImg"><img src="images/xizang.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=西藏美食">西藏</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText30">
+		<div class="mapTipImg"><img src="images/guangdong.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=广东美食">广东</a></h2>
+			<ul>
+				<li><a href="">杨凤玲[深圳]</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText31">
+		<div class="mapTipImg"><img src="images/xianggang.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=香港美食">香港</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText32">
+		<div class="mapTipImg"><img src="images/taiwan.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=台湾美食">台湾</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mapTipText mapTipText33">
+		<div class="mapTipImg"><img src="images/aomen.jpg" alt=""/></div>
+		<div class="mapTipList">
+			<h2><a href="https://www.baidu.com/s?ie=UTF-8&wd=澳门美食">澳门</a></h2>
+			<ul>
+				<li><a href="">暂未收录</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+	<div id="copyright">
+		Copyright © 2016 <a href='http://chuyun.github.io'>chuyun</a> 2016-2017 Just for Classmates'Contact
+	</div>
+
+</body>
+</html>

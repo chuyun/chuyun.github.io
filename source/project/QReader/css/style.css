@@ -1,0 +1,16 @@
+
+
+.Qr-ulr {
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin-top: 3px;
+    /*display: none;*/
+}
+
+#qr-canvas{
+    /*groove*/
+    border:dashed 4px gray;
+    background: url("../image/Custom.png");
+
+}
