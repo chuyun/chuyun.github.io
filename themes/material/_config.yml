@@ -236,7 +236,7 @@ materialcdn:
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
 comment:
-    use: disqus_click
+    use: 163gentie
     shortname: chuyun
     changyan_appid:
     changyan_conf:
