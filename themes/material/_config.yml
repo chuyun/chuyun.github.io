@@ -241,7 +241,7 @@ comment:
     changyan_appid:
     changyan_conf:
     changyan_thread_key_type: path
-    gentie_productKey: "0d21bef2835b4f7e97c50a3f8e912afd"
+    gentie_productKey: 0d21bef2835b4f7e97c50a3f8e912afd
 
 # Search Systems
 # Available value:
