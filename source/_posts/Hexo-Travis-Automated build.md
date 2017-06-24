@@ -11,7 +11,7 @@ date: 2016-10-06 15:40:09
 ---
 Hexo使用TravisCI自动化构建,从而减去了大量的`hexo clean`，`hexo d -g`操作
 <!--more-->
-### Travis CI 简介
+### Travis CI 简介   [![Build Status](https://travis-ci.org/chuyun/chuyun.github.io.svg?branch=master)](https://travis-ci.org/chuyun/chuyun.github.io)
 Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，同时他是在在线的服务，不像jenkins需要你本地打架服务器，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中。
 
 ### 大致介绍
