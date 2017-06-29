@@ -236,10 +236,10 @@ materialcdn:
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
 comment:
-    use: 163gentie
+    use: changyan
     shortname: chuyun
-    changyan_appid:
-    changyan_conf:
+    changyan_appid: cyt5sns96
+    changyan_conf: 6ae663a7d547a9b7e1eaee8575e67f0d
     changyan_thread_key_type: path
     gentie_productKey: 0d21bef2835b4f7e97c50a3f8e912afd
 
