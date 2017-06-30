@@ -81,9 +81,9 @@ img:
     footerico: "/img/footer/footer_ico-" # 设置 footer 中 SNS 图标的路径
     random_thumbnail: "/img/random/material-" # 随机缩略图的路径
     footer_image: # 你可以在侧边栏底部放置任何你想要的图片
-        aoyue_logo:
-            link: "http://aoyue.coding.me/"
-            src: "/image/otherSite/silder/upyun_logo.png"
+        upyun_logo:
+            link: "https://www.upyun.com"
+            src: "/img/upyun_logo_new.svg"
         chuyun_logo:
             link: "http://chuyun.github.io"
             src: "/image/otherSite/silder/chuyun_logo.png"

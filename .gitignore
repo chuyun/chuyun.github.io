@@ -6,3 +6,7 @@ node_modules/
 public/
 .deploy*/
 /public/
+.idea
+.idea/
+/.idea/
+/.idea
