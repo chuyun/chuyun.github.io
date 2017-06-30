@@ -83,7 +83,7 @@ img:
     footer_image: # 你可以在侧边栏底部放置任何你想要的图片
         upyun_logo:
             link: "https://www.upyun.com"
-            src: "/img/upyun_logo_new.svg"
+            src: "/img/upyun_logo.svg"
         chuyun_logo:
             link: "http://chuyun.github.io"
             src: "/image/otherSite/silder/chuyun_logo.png"
