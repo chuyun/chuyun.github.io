@@ -140,6 +140,7 @@ sns:
     zhihu:
     bilibili:
     telegram: #"@ChuYun"
+    upyun: "https://www.upyun.com/"
 
 # SNS Share Switch 用于定义分享菜单中的项目， false 的项将不会显示在分享菜单中
 sns_share:
