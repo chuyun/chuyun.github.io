@@ -5,12 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
-/public/
-.idea
-.idea/
-/.idea/
-/.idea
-
 
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
