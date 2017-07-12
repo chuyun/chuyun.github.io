@@ -21,14 +21,15 @@ Log:
      </script>'
 Upyun:
     '<script>
-
     function addElementDiv(obj) {
-    var str="http://blog.juncao.cc/image/other/ypy.png";
-    　　　　var parent = document.getElementById(obj);
-    　　　　var div = document.createElement("div");
-    　　　　div.setAttribute("id", "newDiv");
-           div.setAttribute("style", "background:red;width:94px;height:100px;background:url(image/other/ypy.png)center center;position:fixed;top:100px;right:20px");
-    　　　　parent.appendChild(div);
-    　　}
-    addElementDiv("main")
+        var str="http://blog.juncao.cc/image/other/ypy.png";
+        　　　　var parent = document.getElementById(obj);
+        　　　　var div = document.createElement("div");
+        　　　　div.setAttribute("id", "newDiv");
+               div.setAttribute("style", "background:red;width:94px;height:100px;background:url(image/other/ypy.png)center center;position:fixed;top:100px;right:20px");
+        　　　　parent.appendChild(div);
+        　　}
+    window.onload=function(){
+     addElementDiv("main")
+    }
      </script>'
