@@ -25,9 +25,7 @@ Upyun:
     function addElementDiv(obj) {
     var str="http://blog.juncao.cc/image/other/ypy.png";
     　　　　var parent = document.getElementById(obj);
-    　　　　//添加 div
     　　　　var div = document.createElement("div");
-    　　　　//设置 div 属性，如 id
     　　　　div.setAttribute("id", "newDiv");
            div.setAttribute("style", "background:red;width:24px;height:25px;background:url(str)center center;position:fixed;top:100px;right:0px");
     　　　　parent.appendChild(div);
