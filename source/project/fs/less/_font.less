@@ -1,0 +1,8 @@
+//less中的循环
+.guestimgwhile(@counter) when (@counter < 5 ) {
+  .bgimg-@{counter} {
+    background:url("../images/bgimg-@{counter}-3x.png") no-repeat center center;
+  }
+  .guestimgwhile(( @counter + 1 ));// 递归调用自身
+}
+.guestimgwhile(1);
