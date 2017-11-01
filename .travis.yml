@@ -1,30 +1,27 @@
 language: node_js
 node_js: stable
- 
-# S: Build Lifecycle
 install:
-  - npm install
- 
- 
-#before_script:
- # - npm install -g gulp
- 
+- npm install
+addons:
+  ssh_known_hosts: uedsky.com:1224
 script:
-  - hexo g
- 
+- hexo g
+- hexo generate && rsync -az -vv --delete -e 'ssh -p 1224' public/ root@101.132.172.45:/var/www/blog
 after_script:
-  - cd ./public
-  - git init
-  - git config user.name "chuyun"
-  - git config user.email "zhangjuncao@outlook.com"
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
- 
+- cd ./public
+- git init
+- git config user.name "chuyun"
+- git config user.email "zhangjuncao@outlook.com"
+- git add .
+- git commit -m "Update docs"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
 branches:
   only:
-    - blog-source
+  - blog-source
 env:
- global:
-   - GH_REF: github.com/chuyun/chuyun.github.io.git
+  global:
+  - GH_REF: github.com/chuyun/chuyun.github.io.git
+before_install:
+- openssl aes-256-cbc -K $encrypted_9b31b1e2a935_key -iv $encrypted_9b31b1e2a935_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
