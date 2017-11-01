@@ -23,5 +23,7 @@ env:
   global:
   - GH_REF: github.com/chuyun/chuyun.github.io.git
 before_install:
-- openssl aes-256-cbc -K $encrypted_9b31b1e2a935_key -iv $encrypted_9b31b1e2a935_iv
+  - openssl aes-256-cbc -K $encrypted_9b31b1e2a935_key -iv $encrypted_9b31b1e2a935_iv
   -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host 主机IP地址\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
