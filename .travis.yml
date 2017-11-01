@@ -3,7 +3,7 @@ node_js: stable
 install:
 - npm install
 addons:
-  ssh_known_hosts: uedsky.com:1224
+  ssh_known_hosts: 101.132.172.45:22
 script:
 - hexo g
 after_script:
