@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[react-mobx-todo]]></title>
+      <url>http://chuyun.github.io/2017/04/23/react-mobx-todo/</url>
+      <content type="html"><![CDATA[<p>MobX 是一个简单、方便扩展、久经考验的状态管理解决方案。</p>
+<h3 id="Mbox核心概念"><a href="#Mbox核心概念" class="headerlink" title="Mbox核心概念"></a>Mbox核心概念</h3><p>State 是每一个应用程序的核心部分，而使用一个不合规范的 State 则是让你的应用充满 bug 和不可控性，或者就是局部变量的循环，让你的 state 失去了同步。有很多框架试图解决这个问题，比如使用不可变的 state，但是这样以来又带来了新的问题，比如数据必须规格化，完整性约束失效等等。</p>
+<p>MobX 和Redux一样都是很热门的库，MboX通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。MobX背后的哲学很简单:</p>
+<blockquote>
+<p><em>任何源自应用状态的东西都应该自动地获得</em></p>
+</blockquote>
+<p>其中包括UI、数据序列化、服务器通讯，等等。</p>
+<p>下图为MobX对状态的管理过程</p>
+<p><img src="/image/pic/pages/react-mobx-todo/flow-cn.png" alt="flow"></p>
+<p>更多详细信息请参阅MboX中文文档=&gt;<a href="http://cn.mobx.js.org/" target="_blank" rel="noopener">http://cn.mobx.js.org/</a></p>
+<p>关于MboX和Redux的比较，<strong>sorrycc</strong> 讲的比较清楚，感兴趣的可以移步 ==&gt;<a href="https://github.com/sorrycc/blog/issues/5?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">MboX和Redux的比较</a></p>
+<h3 id="MobX项目实践"><a href="#MobX项目实践" class="headerlink" title="MobX项目实践"></a>MobX项目实践</h3><p>该实践项目涉及到的技术：</p>
+<ul>
+<li>Ract</li>
+<li>MobX</li>
+<li>Ant-Design</li>
+<li>Less</li>
+<li>LocalStroge</li>
+</ul>
+<h4 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/image/pic/pages/react-mobx-todo/todo-main-component.jpeg" alt="todo-main-component"></h4><p>后期将继续完善</p>
+<p>代码托管在Github，感兴趣可以自行下载，谢谢</p>
+<p>项目地址：<a href="https://github.com/chuyun/react-mobx-todos" target="_blank" rel="noopener">GitHub</a></p>
+<p>在线预览： <a href="https://chuyun.github.io/project/React/react-mobx-todo/">在线</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> React </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> MobX </tag>
+            
+            <tag> Ant-Design </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[浅谈Rem]]></title>
+      <url>http://chuyun.github.io/2017/03/28/rem/</url>
+      <content type="html"><![CDATA[<h3 id="浅谈Rem"><a href="#浅谈Rem" class="headerlink" title="浅谈Rem"></a>浅谈Rem</h3><h5 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h5><p><strong>1、px (pixel 像素)</strong>：是一个虚拟长度单位，是计算机系统的数字化图像长度单位，如果px要换算成物理长度，需要指定精度DPI(Dots Per Inch，每英寸像素数)，在扫描打印时一般都有DPI可选。Windows系统默认是96dpi，Apple系统默认是72dpi。</p>
+<p><strong>2、em(相对长度单位，相对于当前对象内文本的字体尺寸)</strong>：是一个相对长度单位。通常1em=16px。</p>
+<p><strong>3、pt (point，磅)</strong>：是一个物理长度单位，指的是72分之一英寸。<strong>pt=1/72(英寸), px=1/dpi(英寸)</strong></p>
+<p><strong>4、rem（root em，根em）</strong>：是CSS3新增的一个相对单位。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素（em 是相对父元素的相对大小）。通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。</p>
+<p><strong>px特点</strong></p>
+<blockquote>
+<ol>
+<li>px是相对单位，px是相对显示器分辨率而言的；</li>
+<li>px在以往的web开发中使用最多。</li>
+</ol>
+</blockquote>
+<p><strong>em特点</strong> </p>
+<blockquote>
+<ol>
+<li>em的值并不是固定的；</li>
+<li>em会继承父级元素的字体大小。</li>
+</ol>
+</blockquote>
+<p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
+<p>任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。 </p>
+<p>rem</p>
+<blockquote>
+<ol>
+<li>rem的值并不是固定的；</li>
+<li>rem是指相对于根元素的字体大小的单位。</li>
+<li>rem和 em 很相似，但是rem是根据<strong>根元素</strong>计算元素的字体大小，em是根据<strong>父元素</strong>计算元素的字体大小。</li>
+</ol>
+</blockquote>
+<p>rem 主要用于web app中做屏幕适配，从而解决不同手机的屏幕适配问题。</p>
+<p>参考来源：</p>
+<p>1、<a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="noopener">https://isux.tencent.com/web-app-rem.html</a></p>
+<p>2、<a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/" target="_blank" rel="noopener">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Front-End </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> WebApp </tag>
+            
+            <tag> rem </tag>
+            
+            <tag> front-end </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GoodBye Duoshuo ，Hello Disqus]]></title>
+      <url>http://chuyun.github.io/2017/03/21/HelloDisqus/</url>
+      <content type="html"><![CDATA[<p>最开始的博客评论系统是用的多说，后来多说开始不稳定，广告过滤形同虚设，之后打算迁移到有言，一样不是很乐观。</p>
+<p>刚好多说6月1号停止服务，之后就决心放弃多说这颗毒瘤。之前的多说评论数据没有迁移到Disqus（Ps：多说评论数据导入后，用户头像丢失，逼死强迫症~~~）</p>
+<p>遗憾的是Disqus在国内被墙，不能满足绝大部分用户的需求。但是有了条件的限制，博客的评论质量也许会有所提高，欢迎各位小伙伴自带梯子的小伙伴评论~</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Front-End </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Font-End </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[QReader]]></title>
+      <url>http://chuyun.github.io/2016/11/04/QReader/</url>
+      <content type="html"><![CDATA[<p>二维码信息读取工具实现</p>
+<a id="more"></a>
+<p>日常生活中，在电脑端一出现二维码，都要掏出手机扫码，然后将信息发给电脑，相当繁琐</p>
+<p>该程序支持将二维码拖入程序中，返回二维码内容</p>
+<p>下一版本，将会继续实现以下功能：</p>
+<blockquote>
+<p>支持拖入网址、等其他信息，生成对应的二维码，并保存</p>
+<p>支持将二维码内容发送到剪切板</p>
+<p>支持输入信息，编码为二维码</p>
+<p>可能会加入对条形码的支持</p>
+</blockquote>
+<p>程序中使用ZXing 的qrcode.js对二维码进行解码操作</p>
+<p>程序图标</p>
+<p> <img src="/image/pic/pages/qrcodeb.png" alt="程序图标"></p>
+<p>程序界面</p>
+<p><img src="/image/pic/pages/QRJM.png" alt="程序界面"></p>
+<p>2.0.0版本更新记录（2016-11-22）：</p>
+<blockquote>
+<p>弃用Zxing的二维码解析库，版本太老，封装比较复杂</p>
+<p>采用AMD规范编码,使用require.js实现js的异步动态加载</p>
+<p>优化应用启动速度</p>
+<p>支持拖入网址、等其他信息，生成对应的二维码</p>
+<p>支持直接将生成的二维码拖拽保存</p>
+<p>支持将二维码内容发送到剪切板</p>
+<p>Encode和Decode通过右键菜单实现</p>
+</blockquote>
+<p>2.0.0版本更新记录（2016-11-28）</p>
+<blockquote>
+<p>提供windows版本支持，win上面比较奇葩，估计会有些小bug</p>
+<p>提供Linux版本支持，未测试</p>
+<p>菜单栏优化</p>
+<p>bug 修复</p>
+</blockquote>
+<p>2.0.1 版本更新记录（2016-12-15）</p>
+<blockquote>
+<p>bug修复</p>
+<p>更完善的错误处理</p>
+<p>添加数据库支持（PS：采用NeDB做本地化数据存储，记录历史信息）command/control+L 查看历史记录</p>
+<p>性能优化</p>
+<p>功能完善</p>
+</blockquote>
+<p>下一版本计划</p>
+<blockquote>
+<p>速度优化</p>
+<p>菜单栏(2016-11-24已添加)，后期将继续完善</p>
+<p>还是可能会加入对条形码的支持</p>
+<p>可能会加入对摄像头的支持</p>
+<p>可能会加入扫描桌面二维码的功能</p>
+<p>加入自动更新</p>
+<p>其他</p>
+</blockquote>
+<p>注：2.0.1暂时未打包window版本，需要请自行打包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>electron运行及打包脚本详见package.json</p>
+<p>代码开源在<a href="https://github.chuyun" target="_blank" rel="noopener">Github</a></p>
+<p>下载地址</p>
+<p>Mac版（2.0.1）  windows版（2.0.0）   Lunix版（2.0.0）</p>
+<p> 下载地址： <a href="https://pan.baidu.com/s/1nuGeBgP" target="_blank" rel="noopener">百度云盘</a>: 密码: rpyi  </p>
+]]></content>
+      
+        <categories>
+            
+            <category> Front-End </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> QReade </tag>
+            
+            <tag> Electron </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo使用TravisCI自动化构建]]></title>
+      <url>http://chuyun.github.io/2016/10/06/Hexo-Travis-Automated%20build/</url>
+      <content type="html"><![CDATA[<p>Hexo使用TravisCI自动化构建,从而减去了大量的<code>hexo clean</code>，<code>hexo d -g</code>操作<br><a id="more"></a></p>
+<h3 id="Travis-CI-简介"><a href="#Travis-CI-简介" class="headerlink" title="Travis CI 简介   "></a>Travis CI 简介   <a href="https://travis-ci.org/chuyun/chuyun.github.io" target="_blank" rel="noopener"><img src="https://travis-ci.org/chuyun/chuyun.github.io.svg?branch=master" alt="Build Status"></a></h3><p>Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，同时他是在在线的服务，不像jenkins需要你本地打架服务器，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中。</p>
+<h3 id="大致介绍"><a href="#大致介绍" class="headerlink" title="大致介绍"></a>大致介绍</h3><p>我的博客是使用Hexo来搭建的，托管到Github提供的Gitpage服务上的，之前使用Hexo在Bash下不断地hexo d -g,后来发现了<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a>可持续构建项目，集成了Travis CI后，每次写完博客git push到github / 直接在github上新建文章，然后Travis自动构建，构建完成后自动推送到Gitpage服务上。<br>新建一个仓库用于存放博客源代码，并将源代码上传：<br><img src="/image/pic/pages/blog-source.png" alt=""></p>
+<p>username.github.io 这个仓库存放 博客的静态文件，也就是hexo生成后的HTML文件，因为要使用Gitpage服务，放在默认的master分支<br><img src="/image/pic/pages/master.png" alt=""></p>
+<h3 id="使用Travis-CI-构建"><a href="#使用Travis-CI-构建" class="headerlink" title="使用Travis CI 构建"></a>使用Travis CI 构建</h3><p>使用Travis CI，必须要GIthub账号（Travis CI只支持构建github的项目）和一个项目<br>使用Github账号登录<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI官网</a></p>
+<ul>
+<li>登录完后会进入如下界面,点击My Repositories旁边的+，添加一个要自动构建的仓库，点击右上角的“Sync account”按钮，就可以同步了你的Github仓库</li>
+<li>开启你需要构建的仓库</li>
+<li>进行配置：在More option下选择settings，开启Build only if .travis.yml is present和Build pushes</li>
+</ul>
+<p>Build only if .travis.yml is present：是只有在.travis.yml文件中配置的分支改变了才构建<br>Build pushes：当推送完这个分支后开始构建</p>
+<h3 id="在Travis-CI配置Github的Access-Token"><a href="#在Travis-CI配置Github的Access-Token" class="headerlink" title="在Travis CI配置Github的Access Token"></a>在Travis CI配置Github的Access Token</h3><p>标题已经说得很明白了吧，我们需要在Travis上配置Access Token，这样我们就可以在他构建完后自动push到gitpgaes了，用户名密码可以直接写文件里，这样可以push成功，但是安全性就有问题了</p>
+<h4 id="在github上生成Access-Token"><a href="#在github上生成Access-Token" class="headerlink" title="在github上生成Access Token"></a>在github上生成Access Token</h4><p>首先我们来到github的设置界面，点击到Personal access tokens页面，点击右上角的Generate new token按钮会重新生成一个，点击后他会叫你输入密码，然后来到如下界面勾选全部权限，生成TokenKey。生成完后，你需要拷贝下来，只有这时候他才显示，下载进来为了安全他就不会显示了，如果忘了只能重新生成一个了，拷贝完以后我们需要到Travis CI网站配置。</p>
+<h4 id="在Travis-CI配置"><a href="#在Travis-CI配置" class="headerlink" title="在Travis CI配置"></a>在Travis CI配置</h4><p>配置界面还是在项目的setting里面，如下图<br><img src="/image/pic/pages/token1.png" alt=""><br>到这里我已经配置了要构建的仓库和要访问的Token.<br>之后还需要在源代码的仓库里创建一个.travis.yml配置文件，放到源代码的根目录，如下图<br><img src="/image/pic/pages/blog-source.png" alt=""><br>其中内容如下：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span> <span class="string">stable</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># S: Build Lifecycle</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#before_script:</span></span><br><span class="line"> <span class="comment"># - npm install -g gulp</span></span><br><span class="line"></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">hexo</span> <span class="string">g</span></span><br><span class="line"></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">init</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"user_name"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"user_email"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">add</span> <span class="string">.</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"Update docs"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">push</span> <span class="bullet">--force</span> <span class="bullet">--quiet</span> <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> <span class="attr">master:master</span></span><br><span class="line"><span class="comment"># E: Build LifeCycle</span></span><br><span class="line"></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">master</span>    </span><br><span class="line"><span class="attr">env:</span></span><br><span class="line"><span class="attr"> global:</span></span><br><span class="line"><span class="attr">   - GH_REF:</span> <span class="string">github.com/user_name/user_name.github.io.git</span></span><br></pre></td></tr></table></figure></p>
+<p>更换的又git config后面的配置为你你自己的信息<br>GH_REF的值更改为你的仓库地址</p>
+<p><strong>配置完成</strong></p>
+<h4 id="Push文章到Github"><a href="#Push文章到Github" class="headerlink" title="Push文章到Github"></a>Push文章到Github</h4><p>写一篇文章，添加到你的博客的_posts目录下（push可以用git也可以直接用Github Desktop）<br>TravisCI 构建过程：<br><img src="/image/pic/pages/token2.png" alt=""><br>构建完成后，我们去博客可以看见<a href="http://chuyun.github.io/2016/10/06/Hexo%E4%BD%BF%E7%94%A8Travis%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/">这个文章</a>了<br><img src="/image/pic/pages/TCIFIN.png" alt=""></p>
+<p>文章大部分内容参考自<a href="http://i.woblog.cn/2016/05/04/hello-travis-ci/" target="_blank" rel="noopener">TravisCI构建</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> TravisCI </tag>
+            
+            <tag> 自动化构建 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo使用Aplayer插件]]></title>
+      <url>http://chuyun.github.io/2016/10/05/Hexo-Aplayer-Plugin/</url>
+      <content type="html"><![CDATA[<p>本文将讲解在Hexo中如何插入音乐和视频</p>
+<h3 id="Markdown-通用音乐-视频插入方法"><a href="#Markdown-通用音乐-视频插入方法" class="headerlink" title="Markdown 通用音乐/视频插入方法"></a>Markdown 通用音乐/视频插入方法</h3><p>Markdown 作为轻量级的标记语言，兼容 html 语法，所以可以直接在 Markdown 文档中使用 html 语法。</p>
+<h4 id="vedio-标签："><a href="#vedio-标签：" class="headerlink" title="vedio 标签："></a><strong>vedio</strong> 标签：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;320&quot; controls&gt;</span><br><span class="line">&lt;source src=&quot;movie.mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+<p>其中src=音乐/视频链接。<br>Such as:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;320&quot; controls&gt;</span><br><span class="line">&lt;source src=&quot;http://chuyun.github.io/image/video/me.mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="embed标签："><a href="#embed标签：" class="headerlink" title="embed标签："></a>embed标签：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src=&quot;http://player.youku.com/player.php/Type/Folder/Fid/27690810/Ob/1/sid/XMTY1MTI3NjMyNA==/v.swf&quot; quality=&quot;high&quot; width=&quot;480&quot; height=&quot;400&quot; align=&quot;middle&quot; allowScriptAccess=&quot;always&quot; allowFullScreen=&quot;true&quot; mode=&quot;transparent&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/embed&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="iframe标签："><a href="#iframe标签：" class="headerlink" title="iframe标签："></a>iframe标签：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe height=498 width=510 src=&quot;http://player.youku.com/embed/XMTY1MTI3NjMyNA==&quot; frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="javascript标签"><a href="#javascript标签" class="headerlink" title="javascript标签:"></a>javascript标签:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.xiami.com/widget/player-single?uid=32329501&amp;sid=1776238762&amp;mode=js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>除vedio标签外，大部分音乐/视频网站都可以直接生成播放器代码，直接粘贴到 Markdown 文档中即可。<br>不过上述有些标签不支持 https 。</p>
+<h3 id="通过-Hexo-插件插入音乐-视频可以使用两款插件"><a href="#通过-Hexo-插件插入音乐-视频可以使用两款插件" class="headerlink" title="通过 Hexo 插件插入音乐/视频可以使用两款插件"></a>通过 Hexo 插件插入音乐/视频可以使用两款插件</h3><blockquote>
+<p>hexo-tag-aplayer:<a href="https://github.com/grzhan/hexo-tag-aplayer#upstream-issue" target="_blank" rel="noopener">https://github.com/grzhan/hexo-tag-aplayer#upstream-issue</a><br>hexo-tag-dplayer:<a href="https://github.com/NextMoe/hexo-tag-dplayer" target="_blank" rel="noopener">https://github.com/NextMoe/hexo-tag-dplayer</a></p>
+</blockquote>
+<p>两款插件基于 DIYgod 编写的 html5 播放器 APlayer 和 DPlayer 开发。</p>
+<h4 id="安装两款插件"><a href="#安装两款插件" class="headerlink" title="安装两款插件"></a>安装两款插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer &quot;Caffeine&quot;  &quot;Jeff Williams&quot; &quot;http://chuyun.github.io/love/music/xiaojiuwocut.mp3&quot; [&quot;http://chuyun.github.io/image/articles-img/Aplayer.png&quot;, &quot;autoplay&quot; %&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[网络游戏涉及课程设计]]></title>
+      <url>http://chuyun.github.io/2016/10/03/the-network-game/</url>
+      <content type="html"><![CDATA[<p>Unity网络游戏<br><a id="more"></a><br> 问题描述<br>游戏戏定位：Network（暂定为双人对战）<br>     简单射击游戏<br>    双人对战，同时存在少量敌人，最后存活者胜利<br>游戏场景：场景搭建／游戏主角建模<br>  基本游戏逻辑：基本射击／血量／网络同步设计RPC</p>
+<h4 id="游戏主角搭建"><a href="#游戏主角搭建" class="headerlink" title="游戏主角搭建"></a>游戏主角搭建</h4><h4 id="敌人AI"><a href="#敌人AI" class="headerlink" title="敌人AI"></a>敌人AI</h4><p>敌人拥有和主角一样的装备<br>当主角在敌人一定的范围里时，敌人旋转朝向Player&amp;&amp;Fire Player随机掉血</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人课程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 课程 </tag>
+            
+            <tag> 网络游戏设计 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[互动媒体技术课程设计]]></title>
+      <url>http://chuyun.github.io/2016/10/02/Interactive-DigitalMedia/</url>
+      <content type="html"><![CDATA[<p> 互动媒体技术 课程设计  摘要<br><a id="more"></a><br>Mac 小游戏<br>框架：SpriteKit<br>语言：Swift 2.2<br>IDE：Xcode 7.3.1（7D1014）</p>
+<h2 id="游戏基本设计"><a href="#游戏基本设计" class="headerlink" title="游戏基本设计"></a>游戏基本设计</h2><p>游戏分为两种模式：冒险模式、挑战模式</p>
+<p>**挑战模式**：分为4种模式，玩家挑战难度不断加大，最终不断的刷新个人记录。</p>
+<p>**冒险模式**：由挑战模式中的4种方式组合起来，玩家需要突破4个关卡。最终获得成功</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人课程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 课程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【转载】正则表达式语法及常用正则]]></title>
+      <url>http://chuyun.github.io/2016/06/07/RegExp-Grammar/</url>
+      <content type="html"><![CDATA[<p>项目中常用正则表达式来进行校验，然而确实总是遗忘一些相关的语法，需要谷歌搜索一些不太好想或写的正则规则。所以在此总结一份。争取依靠个人总结不断更新这篇日志，节约之后 90% 的查阅搜索时间。<br><a id="more"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>正则表达式就是事先声明一组规则，用于匹配字符串中的字符。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">执行对大小写不敏感的匹配。</td>
+</tr>
+<tr>
+<td style="text-align:center">g</td>
+<td style="text-align:center">执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">执行多行匹配。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>在正则表达式的模式中，有一些字符是有特殊含义的，被称为元字符。元字符都是针对单个字符匹配的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">查找单个字符，除了换行和行结束符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">匹配大小写英文字符及数字 0 到 9 之间的任意一个及下划线，相当于[a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">不匹配大小写英文字符及数字 0 到 9 之间的任意一个，相当于 [^a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">匹配任何空白字符，相当于 [ \f\n\r\t\v]</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:center">匹配任何非空白字符，相当于 [^\s]</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:center">匹配任何 0 到 9 之间的单个数字，相当于 [0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:center">不匹配任何 0 到 9 之间的单个数字，相当于 [^0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">匹配单词边界。</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td style="text-align:center">匹配非单词边界。</td>
+</tr>
+<tr>
+<td style="text-align:center">\0</td>
+<td style="text-align:center">查找 NUL 字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">查找换行符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:center">查找换页符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">查找回车符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">查找制表符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:center">查找垂直制表符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\xxx</td>
+<td style="text-align:center">查找以八进制数 xxx 规定的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\xdd</td>
+<td style="text-align:center">查找以十六进制数 dd 规定的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">[\u4e00-\u9fa5]</td>
+<td style="text-align:center">匹配任意单个汉字（这里用的是 Unicode 编码表示汉字的 )</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">匹配字符串的开头</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">匹配字符串的结尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h3><p>方括号用于查找某个范围内的字符<br>| 表达式     |  描述  |<br>|:—–: | :—-:  |<br>|[…] | 匹配方括号中的所有字符|<br>|[^…]  | 匹配非方括号中的所有字符|</p>
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">表达式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">n*</td>
+<td style="text-align:center">匹配任何包含零个或多个 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n+</td>
+<td style="text-align:center">匹配任何包含至少一个 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n?</td>
+<td style="text-align:center">匹配任何包含零个或一个 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n{X}</td>
+<td style="text-align:center">匹配包含 X 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n{X,Y}</td>
+<td style="text-align:center">匹配包含 X 或 Y 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n{X,}</td>
+<td style="text-align:center">匹配包含至少 X 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n$</td>
+<td style="text-align:center">匹配任何结尾为 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">^n</td>
+<td style="text-align:center">匹配任何开头为 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">?=n</td>
+<td style="text-align:center">匹配任何其后紧接指定字符串 n 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">?!n</td>
+<td style="text-align:center">匹配任何其后没有紧接指定字符串 n 的字符串。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">表达式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(exp)</td>
+<td style="text-align:center">匹配 exp,并捕获文本到自动命名的组里</td>
+</tr>
+<tr>
+<td style="text-align:center">(?<name>exp)</name></td>
+<td style="text-align:center">匹配 exp,并捕获文本到名称为 name 的组里，也可以写成(?’name’exp)</td>
+</tr>
+<tr>
+<td style="text-align:center">(?:exp)</td>
+<td style="text-align:center">匹配 exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+<tr>
+<td style="text-align:center">(?=exp)</td>
+<td style="text-align:center">正向先行断言——代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 exp。</td>
+</tr>
+<tr>
+<td style="text-align:center">(?!exp)</td>
+<td style="text-align:center">负向先行断言——代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 exp</td>
+</tr>
+<tr>
+<td style="text-align:center">(?&lt;=exp)</td>
+<td style="text-align:center">正向后行断言,代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 exp。</td>
+</tr>
+<tr>
+<td style="text-align:center">(?&lt;!exp)</td>
+<td style="text-align:center">负向后行断言,代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 exp。</td>
+</tr>
+<tr>
+<td style="text-align:center">(?#comment)</td>
+<td style="text-align:center">这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常用实例"><a href="#常用实例" class="headerlink" title="常用实例"></a>常用实例</h2><h3 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h3><ul>
+<li><p>数字：<code>^[0-9]*$</code></p>
+</li>
+<li><p>n 位的数字：<code>^\d{n}$</code></p>
+</li>
+<li><p>至少 n 位的数字：<code>^\d{n,}$</code></p>
+</li>
+<li><p>m-n 位的数字：<code>^\d{m,n}$</code></p>
+</li>
+<li><p>零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></p>
+</li>
+<li><p>非零开头的最多带两位小数的数字：<code>^([1-9][0-9]*)+(.[0-9]{1,2})?$</code></p>
+</li>
+<li><p>带 1-2 位小数的正数或负数：<code>^(\-)?\d+(\.\d{1,2})?$</code></p>
+</li>
+<li><p>正数、负数、和小数：<code>^(\-|\+)?\d+(\.\d+)?$</code></p>
+</li>
+<li><p>有两位小数的正实数：<code>^[0-9]+(.[0-9]{2})?$</code></p>
+</li>
+<li><p>有 1~3 位小数的正实数：<code>^[0-9]+(.[0-9]{1,3})?$</code></p>
+</li>
+<li><p>非零的正整数：<code>^[1-9]\d*$</code> 或 <code>^([1-9][0-9]*){1,3}$</code> 或 <code>^\+?[1-9][0-9]*$</code></p>
+</li>
+<li><p>非零的负整数：<code>^\-[1-9][]0-9&quot;*$</code> 或 <code>^-[1-9]\d*$</code></p>
+</li>
+<li><p>非负整数：<code>^\d+$</code> 或 <code>^[1-9]\d*|0$</code></p>
+</li>
+<li><p>非正整数：<code>^-[1-9]\d*|0$</code> 或 <code>^((-\d+)|(0+))$</code></p>
+</li>
+<li><p>非负浮点数：<code>^\d+(\.\d+)?$</code> 或 <code>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</code></p>
+</li>
+<li><p>非正浮点数：<code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code> 或 <code>^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</code></p>
+</li>
+<li><p>正浮点数：<code>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$</code> 或 <code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code></p>
+</li>
+<li><p>负浮点数：<code>^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$</code> 或 <code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code></p>
+</li>
+<li><p>浮点数：<code>^(-?\d+)(\.\d+)?$</code> 或 <code>^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</code></p>
+</li>
+</ul>
+<h3 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a>校验字符的表达式</h3><ul>
+<li><p>汉字：<code>^[\u4e00-\u9fa5]{0,}$</code></p>
+</li>
+<li><p>英文和数字：<code>^[A-Za-z0-9]+$</code> 或 <code>^[A-Za-z0-9]{4,40}$</code></p>
+</li>
+<li><p>长度为 3-20 的所有字符：<code>^.{3,20}$</code></p>
+</li>
+<li><p>由 26 个英文字母组成的字符串：<code>^[A-Za-z]+$</code></p>
+</li>
+<li><p>由 26 个大写英文字母组成的字符串：<code>^[A-Z]+$</code></p>
+</li>
+<li><p>由 26 个小写英文字母组成的字符串：<code>^[a-z]+$</code></p>
+</li>
+<li><p>由数字和 26 个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code></p>
+</li>
+<li><p>由数字、26 个英文字母或者下划线组成的字符串：<code>^\w+$ 或 ^\w{3,20}$</code></p>
+</li>
+<li><p>中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></p>
+</li>
+<li><p>中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code> 或 <code>^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</code></p>
+</li>
+<li><p>可以输入含有 ^%&amp;’,;=?$\” 等字符：<code>[^%&amp;&#39;,;=?$\x22]+</code></p>
+</li>
+<li><p>禁止输入含有 ~ 的字符：<code>[^~\x22]+</code></p>
+</li>
+</ul>
+<h3 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a>特殊需求表达式</h3><ul>
+<li><p>Email 地址：<code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code></p>
+</li>
+<li><p>域名：<code>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?</code></p>
+</li>
+<li><p>InternetURL：<code>[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</code></p>
+</li>
+<li><p>手机号码：<code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</code></p>
+</li>
+<li><p>电话号码（”XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX）：<code>^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$</code></p>
+</li>
+<li><p>国内电话号码（0511-4405222、021-87888822）：<code>\d{3}-\d{8}|\d{4}-\d{7}</code></p>
+</li>
+<li><p>身份证号（15 位、18 位数字）：<br>15 位： <code>^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$</code><br>18 位： <code>^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$</code></p>
+</li>
+<li><p>短身份证号码（数字、字母 x 结尾）：<code>^([0-9]){7,18}(x|X)?$</code> 或 <code>^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$</code></p>
+</li>
+<li><p>帐号是否合法（字母开头，允许 5-16 字节，允许字母数字下划线）：<code>^[a-zA-Z][a-zA-Z0-9_]{4,15}$</code></p>
+</li>
+<li><p>密码（以字母开头，长度在 6~18 之间，只能包含字母、数字和下划线）：<code>^[a-zA-Z]\w{5,17}$</code></p>
+</li>
+<li><p>强密码（必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间）：<code>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$</code></p>
+</li>
+<li><p>日期格式：<code>^\d{4}-\d{1,2}-\d{1,2}</code></p>
+</li>
+<li><p>一年的 12 个月（01～09 和 1～12）：<code>^(0?[1-9]|1[0-2])$</code></p>
+</li>
+<li><p>一个月的 31 天（01～09 和 1～31）：<code>^((0?[1-9])|((1|2)[0-9])|30|31)$</code></p>
+</li>
+<li><p>xml 文件：<code>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</code></p>
+</li>
+<li><p>双字节字符：<code>[^\x00-\xff]</code> （包括汉字在内，可以用来计算字符串的长度（一个双字节字符长度计 2，ASCII字符计 1））</p>
+</li>
+<li><p>空白行的正则表达式：<code>\n\s*\r</code> （可以用来删除空白行）</p>
+</li>
+<li><p>HTML 标记的正则表达式：<code>&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt;</code> （网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力）</p>
+</li>
+<li><p>首尾空白字符的正则表达式：<code>^\s*|\s*$或(^\s*)|(\s*$)</code> （可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等），非常有用的表达式）</p>
+</li>
+<li><p>校验金额（2位小数）： <code>^[0-9]+(.[0-9]{2})?$</code></p>
+</li>
+<li><p>腾讯 QQ 号：<code>[1-9][0-9]{4,}</code> （腾讯 QQ 号从 10000 开始）</p>
+</li>
+<li><p>中国邮政编码：<code>[1-9]\d{5}(?!\d)</code> （中国邮政编码为 6 位数字）</p>
+</li>
+<li><p>IP 地址：<code>\d+\.\d+\.\d+\.\d+</code> （提取IP地址时有用）</p>
+</li>
+<li><p>IP 地址：<code>((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))</code></p>
+</li>
+<li><p>IPV6 地址： <code>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))</code></p>
+</li>
+<li><p>URL 链接： <code>((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&amp;%_\./-~-]*)?</code></p>
+</li>
+<li><p>EMOJI 表情: <code>([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])</code></p>
+</li>
+<li><p>检查 IE 版本 <code>^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$</code></p>
+</li>
+</ul>
+<p>原文来自<a href="http://www.qcyoung.com/" target="_blank" rel="noopener">青春样的博客</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>这里的一篇图灵文章可以帮助你了解正则表达式的更深层原理:<a href="http://www.ituring.com.cn/tupubarticle/5512" target="_blank" rel="noopener">模式、自动机和正则表达式</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Front-End </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 工具资源 </tag>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> 转载 </tag>
+            
+            <tag> RegExp </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[个人博客搭建]]></title>
+      <url>http://chuyun.github.io/2016/04/23/Personal-blog-build/</url>
+      <content type="html"><![CDATA[<p>Hexo个人博客搭建<br><a id="more"></a><br> Hexo搭建 Github／Coding 静态博客主要使用了以下内容：</p>
+<ul>
+<li>使用Hexo框架（基于Node.js的静态博客框架）</li>
+<li>安装git</li>
+<li>HTML  CSS  YML等相关知识</li>
+</ul>
+<p>先来一张预览图<br> <img src="/image/pic/pages/pre.png" alt="预览图"></p>
+<p>之前使用新浪的第三方博客，一直觉得体验不太好，加之之前购买的域名到期，就想使用Hexo框架在Github上搭建自己的个人博客主页</p>
+<h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1.安装环境"></a>1.安装环境</h2><h3 id="1-1-安装git"><a href="#1-1-安装git" class="headerlink" title="1.1 安装git"></a>1.1 安装git</h3><p>作用：将本地Hexo内容提交到Github<br>其它：申请Github账号，设置SSH Keys，请先自行Google，稍后填坑</p>
+<h3 id="1-2-安装Node-js"><a href="#1-2-安装Node-js" class="headerlink" title="1.2 安装Node.js"></a>1.2 安装Node.js</h3><p>下载：<a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a><br>下载最新版本，安装时直接保持默认配置即可（也可以使用Homeblew安装，对于Homeblew安装，请自行Google）</p>
+<h2 id="2-配置Github"><a href="#2-配置Github" class="headerlink" title="2. 配置Github"></a>2. 配置Github</h2><h3 id="2-1-建立Repository"><a href="#2-1-建立Repository" class="headerlink" title="2.1 建立Repository"></a>2.1 建立Repository</h3><p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】</p>
+<h3 id="2-2-配置SSH-Key"><a href="#2-2-配置SSH-Key" class="headerlink" title="2.2 配置SSH Key"></a>2.2 配置SSH Key</h3><p>1.安装Github桌面客户端会自动设置好SSH Key<br>2.直接通过Terminal生成，然后添加到Github上（请自行Google填坑）</p>
+<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h3 id="3-1-正式安装"><a href="#3-1-正式安装" class="headerlink" title="3.1 正式安装"></a>3.1 正式安装</h3><p>当Git和Node.js安装安成以后，新建一个文件夹，例如MyBlog，用于存放Hexo相关文件，在Terminal中 cd 到MyBlog文件夹<br>执行以下命令安装Hexo：<br><code>$ npm install -g hexo-cli</code><br>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。<br><code>$ hexo init</code><br><code>$ cd</code><br>  <code>$ npm install</code><br>至此，全部安装工作已经完成！MyBlog就是你的博客根目录，所有的操作都在里面进行。</p>
+<h3 id="3-2快速设置"><a href="#3-2快速设置" class="headerlink" title="3.2快速设置"></a>3.2快速设置</h3><h4 id="1-生成静态页面"><a href="#1-生成静态页面" class="headerlink" title="1. 生成静态页面"></a>1. 生成静态页面</h4><p>hexo generate（hexo g也可以）<br>该命令执行完后，会在 ..\MyBlog\public\ 目录下生成一系列html，css等文件。</p>
+<h4 id="2-本地启动"><a href="#2-本地启动" class="headerlink" title="2. 本地启动"></a>2. 本地启动</h4><p>启动本地服务，进行文章预览调试，命令：<br><code>$ hexo server</code><br>浏览器输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可查看，按Control＋C停止Server</p>
+<h4 id="3-Create-a-new-post"><a href="#3-Create-a-new-post" class="headerlink" title="3. Create a new post"></a>3. Create a new post</h4><p>在Terminal中继续输入：<br><code>$ hexo new [layout] &lt;title&gt;</code><br>新建一篇文章。如果没有设置 layout 的话，默认使用 \config.yml 中的 default\layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>刷新<a href="http://localhost:4000/，可以发现已生成了一篇新文章" target="_blank" rel="noopener">http://localhost:4000/，可以发现已生成了一篇新文章</a> “My New Post”。</p>
+<h4 id="4-编辑文章"><a href="#4-编辑文章" class="headerlink" title="4. 编辑文章"></a>4. 编辑文章</h4><p><code>hexo new &quot;My New Post&quot;</code>会在..\Myblog\source\posts目录下生成一个markdown文件：My-New-Post.md<br>可以使用一个支持markdown语法的编辑器（比如 Sublime Text 2 /Ulysses /Mou）来编辑该文件,个人推荐使用FarBox推出的<a href="http://markeditor.com/app/markeditor" target="_blank" rel="noopener">MarkEditor</a>，售价¥58，pro 版¥128，可以免费试用，但是会特别频繁的跳出购买链接（PS：赚钱无可厚非，但是频繁的跳出提示框似乎远离了其 优雅高效的体验，我特么好像跑题了 囧rz）</p>
+<h4 id="5-部署到Github"><a href="#5-部署到Github" class="headerlink" title="5.部署到Github"></a>5.部署到Github</h4><p>部署到Github前需要配置\config.yml文件，首先找到下面的内容<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Deployment</span></span><br><span class="line"><span class="comment">##Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span></span><br></pre></td></tr></table></figure></p>
+<p>修改为：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Deployment</span></span><br><span class="line"><span class="comment">##Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span><span class="attr">github:</span> <span class="attr">https://github.com/your\user\name/your\user\name.github.io.git,master</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="NOTE1"><a href="#NOTE1" class="headerlink" title="NOTE1:"></a>NOTE1:</h5><p>Repository：可以是是SSH形式的url（<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:your\user\name/your_user_name.github.io.git），也可以是HTTPS形式的url（<a href="https://github.com/your_user_name/your\user\name.github.io.git），请自行选择" target="_blank" rel="noopener">https://github.com/your_user_name/your\user\name.github.io.git），请自行选择</a><br>使用SSH url，如果电脑没有开放SSH 端口，会致部署失败。</p>
+<h5 id="NOTE2："><a href="#NOTE2：" class="headerlink" title="NOTE2："></a>NOTE2：</h5><p>如果你是为一个项目制作网站，那么需要把branch设置为gh-pages。</p>
+<h4 id="6-测试"><a href="#6-测试" class="headerlink" title="6. 测试"></a>6. 测试</h4><p>部署完成后，在浏览器打开<a href="https://your\user\name.github.io，正常显示网页，则是部署成功" target="_blank" rel="noopener">https://your\user\name.github.io，正常显示网页，则是部署成功</a></p>
+<h4 id="7-总结：部署步骤"><a href="#7-总结：部署步骤" class="headerlink" title="7. 总结：部署步骤"></a>7. 总结：部署步骤</h4><p>每次部署的步骤，可按以下三步来进行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h4 id="8-总结：本地调试"><a href="#8-总结：本地调试" class="headerlink" title="8. 总结：本地调试"></a>8. 总结：本地调试</h4><h5 id="1-在执行下面的命令后，"><a href="#1-在执行下面的命令后，" class="headerlink" title="1. 在执行下面的命令后，"></a>1. 在执行下面的命令后，</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment">#生成</span></span><br><span class="line">$ hexo s <span class="comment">#启动本地服务，进行文章预览调试</span></span><br></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000，查看搭建效果。此后的每次变更\config.yml" target="_blank" rel="noopener">http://localhost:4000，查看搭建效果。此后的每次变更\config.yml</a> 文件或者新建文件都可以先用此命令调试。</p>
+<h5 id="2-可以用简化的一条命令"><a href="#2-可以用简化的一条命令" class="headerlink" title="2. 可以用简化的一条命令"></a>2. 可以用简化的一条命令</h5><p><code>hexo s -g</code></p>
+<h3 id="3-3-命令总结"><a href="#3-3-命令总结" class="headerlink" title="3.3 命令总结"></a>3.3 命令总结</h3><h4 id="3-3-1-常用命令"><a href="#3-3-1-常用命令" class="headerlink" title="3.3.1 常用命令"></a>3.3.1 常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-3-2-复合命令"><a href="#3-3-2-复合命令" class="headerlink" title="3.3.2 复合命令"></a>3.3.2 复合命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g  <span class="comment">#生成加部署</span></span><br><span class="line">hexo server -g  <span class="comment">#生成加预览</span></span><br></pre></td></tr></table></figure>
+<p>命令的简写为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-配置Hexo"><a href="#4-配置Hexo" class="headerlink" title="4. 配置Hexo"></a>4. 配置Hexo</h2><h3 id="4-1基本设置"><a href="#4-1基本设置" class="headerlink" title="4.1基本设置"></a>4.1基本设置</h3><p>这里贴一下我自己的设置，不多说</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">chuyun</span></span><br><span class="line"><span class="attr">subtitle:</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">chuyun</span></span><br><span class="line"><span class="comment"># keywords:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">language:</span></span><br><span class="line"><span class="attr">timezone:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL#可以不用配置</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="comment"># 网址，搜索时会在搜索引擎中显示</span></span><br><span class="line"><span class="attr">url:</span> <span class="attr">http://chuyun.github.io</span> </span><br><span class="line"><span class="comment"># 网站根目录</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="comment"># 永久链接格式</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># 永久链接中各部分的默认值</span></span><br><span class="line"><span class="string">permalink\defaults:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory 目录配置</span></span><br><span class="line"><span class="comment"># 资源文件夹，这个文件夹用来存放内容</span></span><br><span class="line"><span class="string">source\dir:</span> <span class="string">source</span></span><br><span class="line"><span class="comment"># 公共文件夹，这个文件夹用于存放生成的站点文件</span></span><br><span class="line"><span class="string">public\dir:</span> <span class="string">public</span></span><br><span class="line"><span class="comment"># 标签文件夹</span></span><br><span class="line"><span class="string">tag\dir:</span> <span class="string">tags</span></span><br><span class="line"><span class="comment"># 归档文件夹</span></span><br><span class="line"><span class="string">archive\dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="comment"># 分类文件夹</span></span><br><span class="line"><span class="string">category\dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="comment"># Include code 文件夹</span></span><br><span class="line"><span class="string">code\dir:</span> <span class="string">downloads/code</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 国际化文件夹</span></span><br><span class="line"><span class="string">i18n\dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="comment"># 跳过指定文件的渲染，您可使用 glob 来配置路径</span></span><br><span class="line"><span class="string">skip\render:</span></span><br><span class="line"><span class="string">about\dir:</span> <span class="string">about</span></span><br><span class="line"><span class="string">messageboard\dir:</span> <span class="string">messageBoard</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing  # Writing 写作配置</span></span><br><span class="line"><span class="string">new\post\name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts # 新文章的文件名称</span></span><br><span class="line"><span class="string">default\layout:</span> <span class="string">post</span>  <span class="comment">#默认布局</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="string">external\link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line"><span class="string">filename\case:</span> <span class="number">0</span>  <span class="comment">#把文件名称转换为 (1) 小写或 (2) 大写</span></span><br><span class="line"><span class="string">render\drafts:</span> <span class="literal">false</span>  <span class="comment">#显示草稿</span></span><br><span class="line"><span class="string">post\asset\folder:</span> <span class="literal">false</span>  <span class="comment">#是否启动资源文件夹</span></span><br><span class="line"><span class="string">relative\link:</span> <span class="literal">false</span> <span class="comment">#把链接改为与根目录的相对位址</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">highlight:</span>  <span class="comment">#代码块的设置</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="string">line\number:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  auto_detect:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  tab_replace:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag  分类 &amp; 标签</span></span><br><span class="line"><span class="comment"># 默认分类</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="comment"># 分类别名</span></span><br><span class="line"></span><br><span class="line"><span class="attr">category_map:</span> </span><br><span class="line">	<span class="string">编程:</span> <span class="string">programming</span></span><br><span class="line">	<span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">	<span class="string">其他:</span> <span class="string">other</span>  </span><br><span class="line">	</span><br><span class="line"><span class="comment"># 标签别名</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="attr">HH:mm:ss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination 分页</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="comment"># 每页显示的文章量 (0 = 关闭分页功能)</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="comment"># 分页目录</span></span><br><span class="line"><span class="string">pagination\dir:</span> <span class="string">page</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions 扩展</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment"># 当前主题名称</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">TKL-REVISIONZJ</span></span><br><span class="line"></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line"> <span class="comment">#- hexo-generator-feed</span></span><br><span class="line"> <span class="comment">#- hexo-generator-sitemap</span></span><br><span class="line"> <span class="comment">#- hexo-generator-baidu-sitemap</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sitemap:</span></span><br><span class="line"><span class="comment"># sitemap:</span></span><br><span class="line"><span class="comment"># path: sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># baidusitemap:</span></span><br><span class="line"><span class="comment"># path: baidusitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Feed Atom</span></span><br><span class="line"><span class="comment"># feed:</span></span><br><span class="line">  <span class="comment">#type: atom</span></span><br><span class="line">  <span class="comment">#path: atom.xml</span></span><br><span class="line">  <span class="comment">#limit: 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment  #部署到github</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span></span><br><span class="line">	  <span class="attr">github:</span> <span class="attr">https://github.com/your_user_name/your_user_name.github.io.git,master</span></span><br><span class="line">	  <span class="comment">#coding: git@git.coding.net:your_user_name/your_user_name.git,coding-pages</span></span><br></pre></td></tr></table></figure>
+<p><strong>yml语法，在冒号后面有一个空格，注意</strong></p>
+<h3 id="4-2安装主题"><a href="#4-2安装主题" class="headerlink" title="4.2安装主题"></a>4.2安装主题</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">主题列表</a><br>我自己使用的试基于TLK和TKL-REVISION的改进版本</p>
+<p>这里以Pacman为例：<br> 1.将Git Shell 切到MyBlog目录下，然后执行下面的命令，将pacman下载到 themes/pacman 目录下。<br><code>$ git clone https://github.com/A-limon/pacman.git themes/pacman</code></p>
+<ol start="2">
+<li>修改你的博客根目录MyBlog下的config.yml配置文件中的theme属性，将其设置为pacman。</li>
+<li>更新pacman主题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/pacman</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>NOTE：先备份\config.yml 文件后再升级</strong><br>如果模版不能满足要求，请自行修改配置文件，修改CSS文件等</p>
+<h3 id="4-3自定义About界面"><a href="#4-3自定义About界面" class="headerlink" title="4.3自定义About界面"></a>4.3自定义About界面</h3><p>About界面比较简单，直接在MyBlog/source下创建about.md【或者放在about文件夹中】</p>
+<h3 id="4-4自定义404界面"><a href="#4-4自定义404界面" class="headerlink" title="4.4自定义404界面"></a>4.4自定义404界面</h3><p>404页面同About页面，建立404.md，自定义文件即可<br>刚开始我采用了腾讯公益404(具体实现自己百度)，后来改用了自定义404界面可以<a href="http://chuyun.github.io/404">效果点这里</a></p>
+<h3 id="4-5-评论框"><a href="#4-5-评论框" class="headerlink" title="4.5 评论框"></a>4.5 评论框</h3><p>本人开始开用的多说评论，不过后来一时兴起，将其<a href="http://disqus.com" target="_blank" rel="noopener">Disqus评论框架</a>，具体设置根据你自己选取的主题设置。【近期由于GFW原因，导致网页加载太慢，后又再次改用<a href="http://http://duoshuo.com" target="_blank" rel="noopener">多说评论</a>（方便国内用户的同时，多说团队的安全性有待商榷）】<br>此外，插件的配置请自行Google，也不是很复杂，今天就写到这了，有什么问题可以直接留言。</p>
+<p>对于Coding的配置我好像忘记说了，哈哈，比较简单，作业有点多，抽时间再完善一下。</p>
+<h3 id="4-6-sitemap和Rss订阅"><a href="#4-6-sitemap和Rss订阅" class="headerlink" title="4.6 sitemap和Rss订阅"></a>4.6 sitemap和Rss订阅</h3><p>插件部分，请自自行安装</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 文章 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【转载】某前端群题目答案参考]]></title>
+      <url>http://chuyun.github.io/2015/10/30/Front-End-Test01/</url>
+      <content type="html"><![CDATA[<p>比较基础的一套题，这里简单解答并记录。</p>
+<h2 id="一-CSS（40分）"><a href="#一-CSS（40分）" class="headerlink" title="一.CSS（40分）"></a>一.CSS（40分）</h2><h3 id="1-什么是盒模型？"><a href="#1-什么是盒模型？" class="headerlink" title="1. 什么是盒模型？"></a>1. 什么是盒模型？</h3><p>盒模型是网页制作的基础，在网页文档中每个元素都将被描绘为一个矩形盒子来进行渲染。通常来说，一个完整的盒子如下图所示：<br><img src="http://ximicc.com/wp-content/uploads/2014/08/x20097128512.gif" alt="盒模型"></p>
+<h3 id="2-Doctype-的几种类型？"><a href="#2-Doctype-的几种类型？" class="headerlink" title="2. Doctype 的几种类型？"></a>2. Doctype 的几种类型？</h3><p><code>Doctype</code>是Document Type（文档类型）的简写，在页面中，用来指定页面所使用的XHTML（或者HTML）版本。</p>
+<p>在 XHTML1.0和HTML 4.01 中有三种 &lt;!DOCTYPE&gt; 声明。分别为过渡的（Transitional）、严格的（Strict）和框架的（Frameset）。<a href="http://www.w3school.com.cn/tags/tag_doctype.asp" target="_blank" rel="noopener">^Doctype</a></p>
+<p>（1）过渡的</p>
+<p>一种要求不太严格的方式，允许在页面中使用HTML4.01的标识（符合xhtml语法标准）。过渡的DTD的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span><br><span class="line">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>（2）严格的</p>
+<p>一种要求严格的DTD，不允许使用任何表现层的标识和属性，例如<code>&lt;br/&gt;</code>等。严格的DTD的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;</span><br><span class="line">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>（3）框架的</p>
+<p>一种专门针对框架页面所使用的DTD，当页面中含有框架元素时，就要采用这种DTD。框架的DTD的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span><br><span class="line">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在 HTML5 中只有一种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-如何布局左不动右边自适应的两列布局？"><a href="#3-如何布局左不动右边自适应的两列布局？" class="headerlink" title="3. 如何布局左不动右边自适应的两列布局？"></a>3. 如何布局左不动右边自适应的两列布局？</h3><p>思路主要为以下两种：</p>
+<p>1.左边定宽，浮动</p>
+<p>2.左边绝对定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;1&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">	*&#123;</span><br><span class="line">   		margin: 0;</span><br><span class="line">   		padding: 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	#left &#123;</span><br><span class="line">   		position:absolute;</span><br><span class="line">  		/*float: left;/*区别*/</span><br><span class="line">   		background-color: red;</span><br><span class="line">    	width: 250px;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	#content &#123;</span><br><span class="line">    	background-color: orange;</span><br><span class="line">    	margin-left: 250px;/*==等于左边栏宽度==*/</span><br><span class="line">	&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;left&quot;&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;content&quot;&gt;content&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/MyjJrL" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="4-如何布局两列等高？"><a href="#4-如何布局两列等高？" class="headerlink" title="4. 如何布局两列等高？"></a>4. 如何布局两列等高？</h3><p>主要思路如下：</p>
+<p>1.假等高列方法，在列的父元素上使用背景图片在 y 轴上平铺，造成等高列的假象</p>
+<p>2.table-cell 法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;</span><br><span class="line">        #box&#123;</span><br><span class="line">            width:800px;</span><br><span class="line">            background:red;</span><br><span class="line">            margin:0 auto;</span><br><span class="line">            overflow:hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .col&#123;</span><br><span class="line">            display:table-cell;</span><br><span class="line">            width:400px;</span><br><span class="line">        &#125;</span><br><span class="line">        .col:first-child&#123;</span><br><span class="line">          background:blue;</span><br><span class="line">      &#125;</span><br><span class="line">      .col:last-child&#123;</span><br><span class="line">          background:green;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;box&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;col&quot;&gt;</span><br><span class="line">        &lt;p&gt;123&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;456&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;456&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;456&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;8989&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/MyjJrL" target="_blank" rel="noopener">Demo</a><br>3.补丁法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;两列等高布局（float+margin+position)&lt;/title&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    #fa &#123;</span><br><span class="line">        width: 800px;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">        background-color: #1524e5;</span><br><span class="line">        /*</span><br><span class="line">        *overflow就决定了#fa元素生成了bfc或者触发了haslayout </span><br><span class="line">        *并且还把超出的高度截掉了</span><br><span class="line">        */</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .col &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 50%;</span><br><span class="line">        padding-bottom: 10000px;</span><br><span class="line">        margin-bottom: -10000px;</span><br><span class="line">        /*</span><br><span class="line">        *把下面两行注释去掉试试看</span><br><span class="line">        *你会发现父元素的背景出现了</span><br><span class="line">        *这说明父元素的高度是最高的子元素的高度</span><br><span class="line">        *而子元素的高度就是根据盒模型算出来的</span><br><span class="line">        */</span><br><span class="line">        /* padding-bottom: 100px; */</span><br><span class="line">        /* margin-bottom: -100px; */</span><br><span class="line">        /*</span><br><span class="line">        *由于生成了bfc，所以如果给子元素加一个margin-top，也会被计算进高度</span><br><span class="line">        *不信去掉下面的注释试试~</span><br><span class="line">        *上边出现了父元素的背景吧~~~</span><br><span class="line">        */</span><br><span class="line">        /* margin-top: 20px; */</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .col:first-child &#123;</span><br><span class="line">        background-color: #34ef34;</span><br><span class="line">    &#125;</span><br><span class="line">    .col:last-child &#123;</span><br><span class="line">        background-color: #ef34ef;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt; </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;fa&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;col&quot;&gt;</span><br><span class="line">            &lt;p&gt;1231321321&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;1313213&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;1313213&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;1313213&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;1313213&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;1313213&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col&quot;&gt;45645456456&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/QNKdxV" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="5-如何布局右侧定宽，左侧或中间自适应？"><a href="#5-如何布局右侧定宽，左侧或中间自适应？" class="headerlink" title="5. 如何布局右侧定宽，左侧或中间自适应？"></a>5. 如何布局右侧定宽，左侧或中间自适应？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;右侧定宽，左侧自适应宽&lt;/title&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">        *&#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            padding: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        #content &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            color: red;</span><br><span class="line">            float: left;</span><br><span class="line">            background:#666;</span><br><span class="line">            height:400px;</span><br><span class="line">            margin-right: -230px;/*==等于右侧栏宽度==*/</span><br><span class="line">        &#125;</span><br><span class="line">        #side&#123;</span><br><span class="line">            width:230px;/*==等于右侧栏宽度==*/</span><br><span class="line">            height:500px;</span><br><span class="line">            color:#fff;</span><br><span class="line">            background:green;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125; </span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;content&quot;&gt;Main Content&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;side&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/JXREqK" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="6-如何布局三列自适应？"><a href="#6-如何布局三列自适应？" class="headerlink" title="6. 如何布局三列自适应？"></a>6. 如何布局三列自适应？</h3><p>主要思路如下：</p>
+<p>1.绝对定位法（左右两栏绝对定位，固定于页面两侧，主体栏用margin撑开距离）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;</span><br><span class="line">    *&#123;</span><br><span class="line">        margin:0px;</span><br><span class="line">        height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    #left,#right&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top:0px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    #left&#123;</span><br><span class="line">        left:0px;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line">    #right&#123;</span><br><span class="line">        right:0px;</span><br><span class="line">        background: green;</span><br><span class="line">    &#125;</span><br><span class="line">    #main&#123;</span><br><span class="line">        margin:0 210px;background: blue;height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;main&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/mPrRYq" target="_blank" rel="noopener">Demo</a><br>2.margin 负值法<br>主体采用双层标签，外层 DIV 宽度 100% 显示，且浮动。内层 div 为真正主体内容，左栏与右栏采用 margin 负值定位，左栏左浮动，margin-left:-100%,使其正好到达最左端，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">&lt;title&gt;11&lt;/title&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">html,body&#123;margin:0; height:100%;&#125;</span><br><span class="line">#main&#123;width:100%; height:100%; float:left;&#125;</span><br><span class="line">#main #body&#123;margin:0 210px; background:#ffe6b8; height:100%;&#125;</span><br><span class="line">#left,#right&#123;width:200px; height:100%; float:left; background:#a0b3d6;&#125;</span><br><span class="line">#left&#123;margin-left:-100%;&#125;</span><br><span class="line">#right&#123;margin-left:-200px;&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=&quot;main&quot;&gt;</span><br><span class="line">	&lt;div id=&quot;body&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/ZWpLNg" target="_blank" rel="noopener">Demo</a><br>3.自身浮动法:<br>应用标签浮动跟随的特性，左栏左浮动，右栏右浮动，主体直接放后面，实现自适应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;11&lt;/title&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">html,body&#123;margin:0; height:100%;&#125;</span><br><span class="line">#main&#123;height:100%; margin:0 210px; background:#ffe6b8;&#125;</span><br><span class="line">#left,#right&#123;width:200px; height:100%; background:#a0b3d6;&#125;</span><br><span class="line">#left&#123;float:left;&#125;</span><br><span class="line">#right&#123;float:right;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;main&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/yangzj1992/pen/bpwgPx" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="7-gif-png-jpg-的区别？"><a href="#7-gif-png-jpg-的区别？" class="headerlink" title="7. gif,png,jpg 的区别？"></a>7. gif,png,jpg 的区别？</h3><p>参考: <a href="http://wenku.baidu.com/view/fef1587c6bd97f192379e95a.html?re=view" target="_blank" rel="noopener">^图片特点比较</a></p>
+<table>
+<thead>
+<tr>
+<th>图片类型</th>
+<th style="text-align:center">透明性</th>
+<th style="text-align:center">动画支持</th>
+<th style="text-align:center">损耗性</th>
+<th style="text-align:center">显示方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GIF</td>
+<td style="text-align:center">Gif 是一种布尔透明类型，它可以是全透明或全不透明，但是它并没有半透明（alpha 透明）</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">Gif 是一种无损耗的图像格式，这也意味着你可以对 gif 图片做任何操作也不会使图像质量产生损耗;<br>Gif 使用 LZW 算法进行压缩，当压缩 gif 的过程中，像素是由上到下水平压缩的，这也意味着同等条件下，横向的 gif 图片比竖向的 gif 图片更小。例如500*10的图片比10*500的图片更小</td>
+<td style="text-align:center">Gif 支持可选择性的间隔渐进显示；<br>只有256种颜色的 gif 图片不适合作为照片，它适合做对颜色要求不高的图形。</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td style="text-align:center">Png 是完全支持 alpha 透明的（透明，半透明，不透明）</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">png 是一种无损耗的图像格式，这意味着 png 图片做任何操作也不会使图像质量产生损耗。这也使得 png 可以作为 jpeg 编辑的过渡格式;<br>像 GIF 一样，png 也是水平扫描的，这意味着水平重复颜色比垂直重复颜色的图片更小</td>
+<td style="text-align:center">它支持间隔渐进显示，但是会使图片大小更大</td>
+</tr>
+<tr>
+<td>JPG</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">除了一些如旋转（仅仅是90、180、270度旋转），裁切，从标准类型到先进类型，编辑图片的原数据之外，所有其它对 jpeg 图像的处理都会使它的质量产生损失。所以我们在编辑过程一般用 png 作为过渡格式</td>
+<td style="text-align:center">它支持隔行渐进显示（但是 ie 浏览器并不支持这个属性，但是 ie 会在整个图像信息完全到达的时候显示）。<br>由上可以看出 Jpeg 是最适 web 上面的摄影图片和数字照相机中。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h4><p><b>GIF 适合图形，JPEG 适合照片，PNG 系列两种都适合。</b></p>
+<p>PNG 相比 GIF：</p>
+<p>对于相同色值，gif 格式图片会比 png32 格式图片小。但 png8 才是最优的选择。</p>
+<p>PNG8 除了不支持动画外，PNG8 有 GIF 所有的特点，但是比 GIF 更加具有优势的是它支持 alpha 透明和更优的压缩。所以，大多数情况下，你都应该用 PNG8 不是 GIF（除了非常小的图片 GIF 会有更好的压缩外）。</p>
+<p>PNG 相比 JPEG：</p>
+<p>JPEG 比全色 PNG 具有更加好的压缩，因此也使得 JPEG 适合照片，但是编辑 JPEG 过程中容易造成质量的损失，所以全色 PNG 适合作为编辑 JPEG 的过渡格式.</p>
+<h3 id="8-什么是-css-sprite-优缺点？"><a href="#8-什么是-css-sprite-优缺点？" class="headerlink" title="8. 什么是 css sprite?优缺点？"></a>8. 什么是 css sprite?优缺点？</h3><p>CSS Sprites（雪碧图）就是把网页中用到的一些背景图片整合到一张图片文件中，利用 CSS 的“background-image”，“background-repeat”，“background-position”来组合进行背景定位。</p>
+<p>优点： 减少网页的 http 请求，大大提高页面性能。</p>
+<p>缺点：在图片合并的时候，你要把多张图片有序的合理的合并成一张图片，还要留好足够的空间，防止板块内出现不必要的背景。修改编辑图片时也相对较为繁琐。</p>
+<h3 id="9-制作细线表格？"><a href="#9-制作细线表格？" class="headerlink" title="9. 制作细线表格？"></a>9. 制作细线表格？</h3><p>定义 CSS:border-collapse 属性，将值设为 collapse,合并边框</p>
+<h3 id="10-position-relative-absolute-fixed区别与联系？"><a href="#10-position-relative-absolute-fixed区别与联系？" class="headerlink" title="10. position:relative,absolute,fixed区别与联系？"></a>10. position:relative,absolute,fixed区别与联系？</h3><p>postion 一共有四个可选属性：static|relative|absolute|fixed，默认是 static。</p>
+<p>一：relative</p>
+<p>relative 会导致元素自身位置的相对变化，但不会影响其它元素的位置、大小。</p>
+<p>二：absolute</p>
+<p>①absolute 元素脱离文档结构（和 float 元素类似，float 元素也会脱离文档结构）</p>
+<p>②absolute 元素具有“包裹性”。会使其之前的块级元素的宽度变为内容的宽度。</p>
+<p>③absolute 元素具有“跟随性”。没有设置 top、left 的值时，与其前一个元素的 top,left 值为 0。</p>
+<p>如果为 absolute 设置了 top、left，absolute 元素会根据最近的定位上下文确定位置，浏览器会递归查找该元素的所有父元素，如果找到一个设置了 position:relative/absolute/fixed 的元素，就以该元素为基准定位，如果没找到，就以浏览器边界定位。</p>
+<p>三：fixed</p>
+<p>其实 fixed 和 absolute 是一样的，唯一的区别在于：absolute 元素是根据最近的定位上下文确定位置，而 fixed 永远根据浏览器确定位置.</p>
+<h3 id="11-如何居中一个-float-left-的元素"><a href="#11-如何居中一个-float-left-的元素" class="headerlink" title="11. 如何居中一个 float:left 的元素"></a>11. 如何居中一个 float:left 的元素</h3><p>主要思路如下：</p>
+<p>1.定义父级元素为行级元素，在父级元素之上设定 text-align:center</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body &gt;</span><br><span class="line">&lt;div style=&quot;text-align: center;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;display: inline-block;&quot;&gt;</span><br><span class="line">        &lt;div style=&quot;float:left;background: green;&quot;&gt;</span><br><span class="line">            子元素1</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">         &lt;div style=&quot;float:left;background: blue;&quot;&gt;</span><br><span class="line">            子元素2</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>2.父元素浮动法<br>在外层包裹一个父元素，使他浮动，相对定位,left:50%；内部元素同样相对定位，left:-50%；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body &gt;</span><br><span class="line">&lt;div style=&quot;float:left;position:relative;left:50%;&quot;&gt;</span><br><span class="line">        &lt;div style=&quot;float:left;left: -50%;background: green;&quot;&gt;</span><br><span class="line">            子元素1</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div style=&quot;float:left;background: blue;&quot;&gt;</span><br><span class="line">            子元素2</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="12-Css-在各浏览器下的兼容问题你通常是怎么来解决的，请分享你的经验；"><a href="#12-Css-在各浏览器下的兼容问题你通常是怎么来解决的，请分享你的经验；" class="headerlink" title="12. Css 在各浏览器下的兼容问题你通常是怎么来解决的，请分享你的经验；"></a>12. Css 在各浏览器下的兼容问题你通常是怎么来解决的，请分享你的经验；</h3><p>解决办法一般都是平时为知笔记记录，搜索时熟悉内容找笔记内容+不熟悉的找谷歌。</p>
+<h2 id="二-Js-30分"><a href="#二-Js-30分" class="headerlink" title="二. Js 30分"></a>二. Js 30分</h2><h3 id="1-parseInt-与-parseFloat-的区别？"><a href="#1-parseInt-与-parseFloat-的区别？" class="headerlink" title="1. parseInt 与 parseFloat 的区别？"></a>1. parseInt 与 parseFloat 的区别？</h3><p>parseInt 与 parseFloat 是把字符串转换成整数和浮点数的方法，<br>二者语法如下<br>parseInt(string, radix)<br>parseFloat(string)</p>
+<p>parseInt 多一个可选的 radix 数字基数。</p>
+<p>两者的一些参数执行返回结果如下</p>
+<table>
+<thead>
+<tr>
+<th>str</th>
+<th style="text-align:center">parseInt(str)</th>
+<th style="text-align:center">parseFloat(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零长度字符串</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">NaN</td>
+</tr>
+<tr>
+<td>null</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">NaN</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">NaN</td>
+</tr>
+<tr>
+<td>.3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0.3</td>
+</tr>
+<tr>
+<td>-.3</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">-0.3</td>
+</tr>
+<tr>
+<td>-3</td>
+<td style="text-align:center">-3</td>
+<td style="text-align:center">-3</td>
+</tr>
+<tr>
+<td>3e7</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">30000000</td>
+</tr>
+<tr>
+<td>0xFF</td>
+<td style="text-align:center">255</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>0x3e7</td>
+<td style="text-align:center">999</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>08</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>123abc</td>
+<td style="text-align:center">123</td>
+<td style="text-align:center">123</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-valueof-与-toString-的区别？"><a href="#2-valueof-与-toString-的区别？" class="headerlink" title="2. valueof 与 toString 的区别？"></a>2. valueof 与 toString 的区别？</h3><p>基本上，所有的 JS 数据类型都拥有这两种方法（NULL 除外），他们俩解决了 JS 值的运算和显示问题。<br><br>在《javaScript 高级程序设计》一书中描述如下：</p>
+<p>toString()——返回对象的原始字符串表示</p>
+<p>valueOf()——返回最适合该对象的原始值</p>
+<p>一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function Money(gold, silver, coin)</span><br><span class="line">    &#123;</span><br><span class="line">        this.gold = gold;</span><br><span class="line">        this.silver = silver;</span><br><span class="line">        this.coin = coin;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Money.parse = function(value)</span><br><span class="line">    &#123;</span><br><span class="line">        var coin = parseInt(value % 25);</span><br><span class="line">        var silver = parseInt(value / 25 % 20);</span><br><span class="line">        var gold = parseInt(value / 500);</span><br><span class="line">        return new Money(gold, silver, coin);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Money.prototype.valueOf = function()</span><br><span class="line">    &#123;</span><br><span class="line">        return ((this.gold * 20) + this.silver) * 25 + this.coin;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Money.prototype.toString = function()</span><br><span class="line">    &#123;</span><br><span class="line">        return this.gold + &quot;金，&quot; + this.silver + &quot;银，&quot; + this.coin + &quot;铜&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var money1 = new Money(5, 6, 1);</span><br><span class="line">    var money2 = new Money(2, 4, 6);</span><br><span class="line">    var money3 = Money.parse(money1 + money2);</span><br><span class="line">    alert(money3);//7金，10银，7铜</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>这里隐式调用了 valueOf 跟 toString，二者并存的情况下，在数值运算中，优先调用了 valueOf，字符串运算中，优先调用了 toString。比如 money1 + money2，调用的就是两者 valueOf 之后的值相加，而 alert 的时候，把 money3 先 toString 了一下。</p>
+<table>
+<thead>
+<tr>
+<th>str</th>
+<th style="text-align:center">valueOf(str)</th>
+<th style="text-align:center">toString(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td style="text-align:center">Array 数组的元素被转换为字符串，这些字符串由逗号分隔，连接在一起。其操作与 Array.toString 和 Array.join 方法相同。</td>
+<td style="text-align:center">Array 将 Array 的元素转换为字符串。结果字符串由逗号分隔，且连接起来。</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td style="text-align:center">Boolean 的原始值</td>
+<td style="text-align:center">Boolean 如果 Boolean 值是 true，则返回 “true”。否则，返回 “false”。</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">Date 存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。</td>
+<td style="text-align:center">Date 返回日期的文字表示法。Error 返回一个包含相关错误消息的字符串。</td>
+</tr>
+<tr>
+<td>Function</td>
+<td style="text-align:center">Function 函数本身。</td>
+<td style="text-align:center">Function 返回如下格式的字符串，其中 functionname 是被调用 toString 方法函数的名称： function functionname( ) { [native code] }</td>
+</tr>
+<tr>
+<td>Number</td>
+<td style="text-align:center">Number 数字值。</td>
+<td style="text-align:center">Number 返回数字的文字表示。</td>
+</tr>
+<tr>
+<td>Object</td>
+<td style="text-align:center">Object 对象本身。这是默认情况。</td>
+<td style="text-align:center">Object 默认返回 “[object objectname]”，其中 objectname 是对象类型的名称。</td>
+</tr>
+<tr>
+<td>String</td>
+<td style="text-align:center">String 字符串值。</td>
+<td style="text-align:center">String 返回 String 对象的值。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-全等与相等？"><a href="#3-全等与相等？" class="headerlink" title="3. 全等与相等？"></a>3. 全等与相等？</h3><p>相等(==),当且仅当两个运算符相等时，返回 true。在确定两个运算符时会进行类型转换。<br><br>执行类型转换的规则如下：</p>
+<ul>
+<li>如果一个运算数是 Boolean 值，在检查相等性之前，把它转换成数字值。false 转换成 0，true 为 1。</li>
+<li>如果一个运算数是字符串，另一个是数字，在检查相等性之前，要尝试把字符串转换成数字。</li>
+<li>如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换成字符串。</li>
+<li>如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换成数字。</li>
+</ul>
+<p>全等(===)<br>只有在无需类型转换运算数就相等的情况下，才返回 true。</p>
+<h3 id="4-break-与-continue-的区别？"><a href="#4-break-与-continue-的区别？" class="headerlink" title="4. break 与 continue 的区别？"></a>4. break 与 continue 的区别？</h3><p>break 表示跳出循环，continue 表示结束本次循环 </p>
+<h3 id="5-js的作用域？"><a href="#5-js的作用域？" class="headerlink" title="5. js的作用域？"></a>5. js的作用域？</h3><p>js 的作用域以函数 function 来划分，根据作用域，使得变量存在作用域的概念分为全局变量和局部变量。</p>
+<h3 id="6-Array-的-slice-与-splice-的区别？"><a href="#6-Array-的-slice-与-splice-的区别？" class="headerlink" title="6. Array 的 slice 与 splice 的区别？"></a>6. Array 的 slice 与 splice 的区别？</h3><ul>
+<li>arrayObject.slice(start,end)<br>slice() 方法从已有的数组中返回选定的元素,其接收1或2个参数，返回一个新的数组，包含数组下标从 start 到 end（不包括该元素）的 arrayObject 中的元素。（如果没有指定end参数，那么切分的数组包含从 start 到数组结束的所有元素。）<br>如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aCloros = [<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"blue"</span>,<span class="string">"yellow"</span>,<span class="string">"purple"</span>];</span><br><span class="line"><span class="keyword">var</span> aCloros2 = aCloros.slice(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> aCloros3 = aCloros.slice(<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">alert(aCloros2);<span class="comment">//output “green,blue,yellow,purple”</span></span><br><span class="line">alert(aCloros3);<span class="comment">//output “green,blue,yellow”</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>arrayObject.splice(index,howmany,item1,…..,itemX)</li>
+</ul>
+<p>splice() 方法可从数组中添加或删除项目，然后返回被删除的项目。<br>splice() 方法可删除从 index 处开始的零个或多个元素，howmany 表示删除数量，后面的参数表示向数组中添加的新项目。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"red"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"green"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"blue"</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">"yellow"</span></span><br><span class="line">arr[<span class="number">4</span>] = <span class="string">"purple"</span></span><br><span class="line"></span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="string">"white"</span>) <span class="comment">//output red,green,white,blue,yellow,purple</span></span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"white"</span>) <span class="comment">//output red,green,white,yellow,purple</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-正则中-test-与-match-的区别？"><a href="#7-正则中-test-与-match-的区别？" class="headerlink" title="7. 正则中 test 与 match 的区别？"></a>7. 正则中 test 与 match 的区别？</h3><ul>
+<li>RegExpObject.test(str)<br><br>test()方法用于检测一个字符串是否匹配某个模式.如果字符串 str 中含有与 RegExpObject 匹配的文本，则返回 true，否则返回 false。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匹配正整数</span></span><br><span class="line"><span class="keyword">var</span> patten = <span class="regexp">/^[1-9]\d*$/</span>;</span><br><span class="line">patten.test(<span class="string">"1498924"</span>) <span class="comment">//true</span></span><br><span class="line">patten.test(<span class="string">"-1498924"</span>) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>stringObject.match(regexp)</li>
+</ul>
+<p>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。返回指定的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"1 + 2 * 3 / 4"</span></span><br><span class="line">str.match(<span class="regexp">/\d+/g</span>)  <span class="comment">//["1", "2", "3", "4"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-如何在-js-中创建一个对象并继承他？"><a href="#8-如何在-js-中创建一个对象并继承他？" class="headerlink" title="8. 如何在 js 中创建一个对象并继承他？"></a>8. 如何在 js 中创建一个对象并继承他？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Person,    //强制声明构造函数，默认是Object</span><br><span class="line">    sayName : function() &#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Person1 = <span class="keyword">new</span> Person(<span class="string">"xiaoming"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="9-什么是-prototype-什么是原型链？"><a href="#9-什么是-prototype-什么是原型链？" class="headerlink" title="9. 什么是 prototype ? 什么是原型链？"></a>9. 什么是 prototype ? 什么是原型链？</h3><p>而 JavaScript 中每个对象都有一个内部的链接指向另一个对象，这个对象就是原对象的原型（prototype）。这个原型对象也有自己的原型，直到对象的原型为 null 为止。这种一级一级的链结构就是原型链。</p>
+<p>如通过 new 运算符创建的对象，构造函数.prototype的值就是该对象的原型对象。<br>var now = new Date();<br>now 对象的原型对象就是 Date.prototype。<br>通过 new 一个对象就可以调用里面的公开的方法，属性。</p>
+<h3 id="10-setTimeout-与-setInterval-的区别？"><a href="#10-setTimeout-与-setInterval-的区别？" class="headerlink" title="10. setTimeout 与 setInterval 的区别？"></a>10. setTimeout 与 setInterval 的区别？</h3><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。<br>setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。它会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数。</p>
+<h3 id="11-cssText"><a href="#11-cssText" class="headerlink" title="11. cssText?"></a>11. cssText?</h3><p>cssText 的本质就是设置 HTML 元素的 style 属性值。<br>document.getElementById(“d1”).style.cssText = “color:red; font-size:13px;”; </p>
+<h3 id="12-offsetWidth-scrollLeft-scrollHeight"><a href="#12-offsetWidth-scrollLeft-scrollHeight" class="headerlink" title="12. offsetWidth, scrollLeft, scrollHeight?"></a>12. offsetWidth, scrollLeft, scrollHeight?</h3><ul>
+<li>offsetWidth:元素的宽度（width + padding + border）</li>
+<li>scrollLeft:返回和设置当前横向滚动条的坐标值</li>
+<li>scrollWidth:获取对象的滚动高度。 </li>
+</ul>
+<h3 id="13-IE-的事件与-w3c-事件的区别？"><a href="#13-IE-的事件与-w3c-事件的区别？" class="headerlink" title="13. IE 的事件与 w3c 事件的区别？"></a>13. IE 的事件与 w3c 事件的区别？</h3><ul>
+<li><p>w3c 事件流:　　<br>　从根文档(html)开始遍历所有子节点，如果目标事件的父节点设置为捕获时触发，则执行该事件，直到目标被执行，然后再事件冒泡(设置为捕获时触发的事件不再被执行)。</p>
+</li>
+<li><p>ie 事件流:<br>　从目标事件被执行，然后再冒泡父节点的事件，直到根文档。</p>
+</li>
+</ul>
+<h2 id="三-高级：30分"><a href="#三-高级：30分" class="headerlink" title="三. 高级：30分"></a>三. 高级：30分</h2><h3 id="1-除了-jQuery-以外，请写出你所知道的-js-框架，试说出不同框架的特点；"><a href="#1-除了-jQuery-以外，请写出你所知道的-js-框架，试说出不同框架的特点；" class="headerlink" title="1. 除了 jQuery 以外，请写出你所知道的 js 框架，试说出不同框架的特点；"></a>1. 除了 jQuery 以外，请写出你所知道的 js 框架，试说出不同框架的特点；</h3><ul>
+<li><p>Zeptojs:轻量级的适于移动端的针对高级浏览器的 JavaScript 库（类jQuery）</p>
+</li>
+<li><p>Underscore.js:一个 JavaScript 实用库，提供了一整套函数式编程的实用功能，没有扩展任何 JavaScript 内置对象，弥补了部分 jQuery 没有实现的功能。</p>
+</li>
+<li><p>Bootstrap:拥有丰富的 Web 组件。</p>
+</li>
+<li><p>Node.js: 跨平台、可用于服务器端和网络应用的运行环境；具有事件驱动、单线程运行、非阻塞 I/O 调 用、V8 引擎执行代码的特性。Node.js 含有一系列内置模块，使得程序可以作为独立服务器运行,适合在分布式设备上运行的数据密集型的实时应用.</p>
+</li>
+<li><p>AngularJS: MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等，适用于单页面、CRUD 应用。</p>
+</li>
+<li><p>ReactJs: 基于组件化开发，而且所有组件有其状态。将 DOM 封装为可以相互组合的 Component, 并且将DOM操作抽象为状态的改变。</p>
+</li>
+<li><p>Vue: MVVM、双向数据绑定连接视图和模型、保持状态和视图同步、易于组件化和模块化、简单灵活的 API ，易上手。</p>
+</li>
+</ul>
+<h3 id="2-对于-Javascript-中-OOP-的理念，你认为在项目开发中有没有必要，什么样的项目适合前端-OOP，请谈谈你的看法；"><a href="#2-对于-Javascript-中-OOP-的理念，你认为在项目开发中有没有必要，什么样的项目适合前端-OOP，请谈谈你的看法；" class="headerlink" title="2. 对于 Javascript 中 OOP 的理念，你认为在项目开发中有没有必要，什么样的项目适合前端 OOP，请谈谈你的看法；"></a>2. 对于 Javascript 中 OOP 的理念，你认为在项目开发中有没有必要，什么样的项目适合前端 OOP，请谈谈你的看法；</h3><p>我个人认为不太重要，在前端页面不需要刻意的去追求面向对象。</p>
+<p>因为对于面向对象我们需要注意“继承、多态、封装、组合”等特性，它们的出发点都是“分离减少关注点”。使程序以最小的代价来适应“关注点”的变化。<br>但对于前端代码需要关注的东西与后端存在许多不同，后端程序大多只需关注项目的“数据+行为”——关注点不多且容易预测。而前端则是“数据+行为+展现+交互”，其中多出来的“展现+交互”决定了前端的关注点更多且更加无从预测，除非人为限制减少相关的关注点，让 UI 和交互套在一个相对死的范围内进行，而这样难免会影响到 UI 的灵活性，不可避免的面对：“丑，慢，大”等特性。</p>
+<p>结合以上，前端层面上做好代码的分层、解耦、结构化则更优，但做这些事和追求面向对象没有必然关系。</p>
+<h3 id="3-在-Javascript-开发中，关于性能优化，分享一下你相关的经验？"><a href="#3-在-Javascript-开发中，关于性能优化，分享一下你相关的经验？" class="headerlink" title="3. 在 Javascript 开发中，关于性能优化，分享一下你相关的经验？"></a>3. 在 Javascript 开发中，关于性能优化，分享一下你相关的经验？</h3><p>对于 JS 开发个人总结大概如下：<br>基本原则：</p>
+<ul>
+<li>尽可能的减少请求。</li>
+<li>代码开发遵守规范</li>
+</ul>
+<p>具体细节：<br>基本的代码规范，如 JS 脚本放在底部加载，尽量写为外部文件，基本的上线压缩等<br>其余一些细节包括</p>
+<ol>
+<li>资源加载</li>
+</ol>
+<ul>
+<li>资源加载：首页加载性能提升</li>
+<li>按需加载：静态资源依赖关系表，lazyload</li>
+</ul>
+<ol start="2">
+<li>开发规范</li>
+</ol>
+<ul>
+<li>AJAX：缓存 AJAX,请求：GET</li>
+<li>减少 DOM 操作</li>
+<li>避免全局变量，尽量使用语言本身的构造和内建函数等。<br>等等。。<br>具体可参考<a href="https://github.com/yangzj1992/web_performance_optimization" target="_blank" rel="noopener">前端性能优化指南</a></li>
+</ul>
+<h3 id="4-对于模块开发你是怎么看的？"><a href="#4-对于模块开发你是怎么看的？" class="headerlink" title="4. 对于模块开发你是怎么看的？"></a>4. 对于模块开发你是怎么看的？</h3><p>前端采用模块化开发，使得开发体验大大增强，也使代码管理更加清晰、规范。主要表现为以下几点：</p>
+<ul>
+<li>减少命名冲突，消除全局变量</li>
+<li>一个模块一个文件，组织更清晰</li>
+<li>依赖自动加载，按需加载</li>
+<li>其中文件按需加载，依赖自动管理，使得更多精力去关注模块代码本身，开发时不需要在页面上写一大堆 script 引用，一个 require 初始化模块就搞定。</li>
+</ul>
+<p>前端模块化规范标准：</p>
+<p>CommonJs (Node.js)<br>AMD (RequireJS)<br>CMD (SeaJS)</p>
+<p>也可参考这里的前部分<a href="https://github.com/seajs/seajs/issues/547" target="_blank" rel="noopener">前端模块化开发的价值</a></p>
+<h3 id="5-对于-Javascript-MVC-开发你是怎么看的？分享一下你了解的相关信息？"><a href="#5-对于-Javascript-MVC-开发你是怎么看的？分享一下你了解的相关信息？" class="headerlink" title="5. 对于 Javascript MVC 开发你是怎么看的？分享一下你了解的相关信息？"></a>5. 对于 Javascript MVC 开发你是怎么看的？分享一下你了解的相关信息？</h3><p>简单了解的采用MVC开发模式的库包括：</p>
+<ul>
+<li>Backbone.js——优点：社区较好，缺点：抽象较弱。</li>
+<li>Ember.js——优点：丰富的模板系统，拥有复合视图和 UI 绑定；缺点：相对较新，还不够成熟</li>
+<li>Angular.js——优点：对模板范围和控制器设计有很好的考虑，拥有依赖注入系统，支持丰富的 UI 绑定语法。缺点：代码的模块性不强，视图的模块化也不够。</li>
+</ul>
+<p>其余了解的不多</p>
+<p>但平常做项目的时候，特别是大项目，一定要把 MVC 的概念放在业务场景里多想想。MVC 并不是终极思想。它有它适合的地方，但也有其局限的一面。还有前端 MVC 的话，对应的后台最好是 REST 风格的接口。还有并不是越复杂的前端业务，越紧迫地需要MVC。一定要多想多看。</p>
+<p>MVC 的一大问题在于:MVC 开发模式会将本身简单的系统大大增加结构的复杂性，并且降低效率。</p>
+<p>但整套前端开发其实本质上可以看做一个大大的 MVC 架构:<br>Model: HTML/XHTML中的信息<br>View: Style sheet<br>Controller: ECMAScripts等等脚本</p>
+<h3 id="6-AJAX-是什么-AJAX-跨域的解决办法"><a href="#6-AJAX-是什么-AJAX-跨域的解决办法" class="headerlink" title="6. AJAX 是什么? AJAX 跨域的解决办法?"></a>6. AJAX 是什么? AJAX 跨域的解决办法?</h3><p>AJAX 即“Asynchronous JavaScript and XML”（异步的 JavaScript 与 XML 技术），是一种创建交互式网页应用的网页开发技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>AJAX 跨域解决：</p>
+<ol>
+<li><p>使用中间层过渡的方式：<br>就是在 AJAX 与不同域的服务器进行通讯的中间加一层过渡，这一层过渡可以是 PHP、JSP、C++ 等任何具备网络通讯功能的语言，由中间层向不同域的服务器进行读取数据的操作。</p>
+</li>
+<li><p>使用 ＜script＞ 标签<br>利用 ＜script＞ 标签中 src 来请求，因为 ＜script＞ 标签的 src 属性不存在跨域的问题。</p>
+</li>
+<li><p>jsonp</p>
+</li>
+</ol>
+<hr>
+<p>Questions by <a href="https://github.com/jikeytang" target="_blank" rel="noopener">豪情</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Front-End </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> 转载 </tag>
+            
+            <tag> 前端知识 </tag>
+            
+            <tag> 题目 </tag>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>

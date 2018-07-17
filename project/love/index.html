@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!-- 	BGM -->
+	<!-- 	<embed src="music/xiaojiuwo.mp3" autostart="true" loop="true" height="0"width="0" ></embed> -->
+	<!-- <bgsound src="music/xiaojiuwo.mp3" loop="1"> -->
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('fonts/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<!-- 	CSS -->
+	<link href="css/default_dev.css" type="text/css" rel="stylesheet">
+	<link href="css/lovestyle.css" type="text/css" rel="stylesheet">
+	<!-- 	JS -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/garden_dev.js"></script>
+	<script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+
+<body>
+	<!-- 	controls="controls" -->
+	<audio autoplay="autoplay" loop="loop" preload="auto">
+		<source src="./music/xiaojiuwocut.mp3" loop="loop" type="audio/mpeg"> 你的浏览器不支持html5 audio标签
+	</audio>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<!--注释-->
+				<span class="comments">/**</span>
+				<br />
+				<!--我们从相识到相知-->
+				<span class="space" />
+				<span class="comments">* We've known each other for 6 years.</span>
+				<br />
+				<span class="space" />
+				<span class="comments">* I write some code to celebrate our half year anniversary.</span>
+				<br />
+				<span class="space" />
+				<span class="comments">*/</span>
+				<br /> Girl u =
+				<span class="keyword">new</span> Girl(
+				<span class="string">"Ao Yue"</span>);
+				<br /> Boy i =
+				<span class="keyword">new</span> Boy(
+				<span class="string">"Zhang Juncao"</span>);
+				<br />
+				<span class="comments">// I remember when I particularly like pat your head.</span>
+				<br /> i.pat(u);
+				<br/>
+				<span class="comments">// And I would also like to see your sweet smile.</span>
+				<br />
+				<span class="keyword">boolean</span> isSmile =
+				<span class="keyword">true</span>;
+				<br />
+				<span class="keyword">while</span> (isSmile) {
+				<br />
+				<span class="placeholder" />u.looked(cute);
+				<br /> }
+				<br />
+				<span class="comments">// Gradually, I have feelings for you.</span>
+				<br /> i.haveFeelings(u);
+				<br />
+				<span class="comments">// Oct 24, 2015, I told you I love you. </span>
+				<br /> i.love(u);
+				<br />
+				<!--还记得你不远千里到无锡和我一起玩耍,我们牵着手一起爬惠山,在雨中漫步-->
+				<span class="comments">// I still remember when you travel long distances to play with me in Wuxi</span>
+				<br /> u.amuse(Wuxi);
+				<br />
+				<span class="comments">// Luckily, you accepted on Nov 22,2015 </span>
+				<br />
+				<span class="comments">// And became my girlfriend eversince.</span>
+				<br /> u.accepted();
+				<br />
+				<span class="comments">// Since then, I miss u every day.</span>
+				<br /> i.miss(u);
+				<br />
+				<span class="comments">// We met in Shenzhen and play with each other</span>
+				<br /> i.met(u);
+				<br />
+				<span class="comments">// And take care of u and our love.</span>
+				<br /> i.takeCareOf(u);
+				<br />
+				<span class="placeholder" />
+				<span class="comments">// I'm ready to marry you in the near future</span>
+				<br />
+				<!--<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />-->
+				<!--<span class="placeholder"/>isHesitate = u.thinkOver();<br />-->
+				<span class="comments">// After a romantic wedding, we will live happily ever after.</span>
+				<br /> i.marry(u);
+				<br /> i.liveHappilyWith(u);
+				<br />
+
+				<br />
+				<span class="keyword">YueYue I love you forver and ever !</span>
+				<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						AoYue, We have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						I Love u forever and ever.
+						<br/>
+						<div class="signature"> -- ZhangJuncao</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Copyright © 2016
+			<a href='http://chuyun.github.io'>chuyun</a> 2016-Forever Just for YueYue
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2015, 10, 22); //备注：月份从0开始的，所以2015-11-22 在setFullYear中月份应该写为10
+		together.setHours(22);
+		together.setMinutes(22);
+		together.setSeconds(22);
+		together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none");
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "5px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+
+	<!-- 	Music -->
+
+
+</body>
+
+</html>
